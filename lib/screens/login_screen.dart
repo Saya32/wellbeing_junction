@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/elements/textfield.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset('assets/images/logo.png', width: 200),
 
             // Greetings -  wellbeing Junction
-            const SizedBox(height: 15), //allows padding
+            // const SizedBox(height: 10), //allows padding
             Text(
               'Welcome to Wellbeing Junction!',
               style: TextStyle(
@@ -32,27 +33,19 @@ class _LoginPageState extends State<LoginPage> {
 
             //Email textfield
             const SizedBox(height: 30), //allows padding
-            TextField(
-              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
-            ),
+            TextFieldElement(), //Call the method saved in elements folder to avoid repetion of UI text code 
 
             //Password textfield
             const SizedBox(height: 30), //allows padding
-            TextField(
-              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
-            ),
+            TextFieldElement(),
 
             //Forget password?
             const SizedBox(height: 30), //allows padding
-            TextField(
-              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
-            ),
+            TextFieldElement(),
 
             //Log in button
             const SizedBox(height: 30), //allows padding
-            TextField(
-              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
-            ),
+            TextFieldElement(),
 
             //Google authentication
 
