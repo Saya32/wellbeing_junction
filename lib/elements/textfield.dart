@@ -17,17 +17,15 @@ class TextFieldElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0.1),
       child: TextField(
+        // style: TextStyle(height: 0.4),
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
               borderSide: BorderSide(color: Color.fromARGB(255, 204, 70, 231))),
-          // focusedBorder: OutlineInputBorder(
-          //     borderSide:
-          //         BorderSide(color: const Color.fromARGB(255, 234, 194, 241))),
           hintText: hinText,
         ),
       ),
