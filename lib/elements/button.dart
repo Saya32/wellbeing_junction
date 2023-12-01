@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class ButtonElement extends StatelessWidget {
@@ -12,15 +10,18 @@ class ButtonElement extends StatelessWidget {
     return GestureDetector(
       //onTap: ,
       child: Container(
-          padding: EdgeInsets.all(18),
-          margin: EdgeInsets.symmetric(horizontal: 80),
+          padding: const EdgeInsets.all(18),
+          margin: const EdgeInsets.symmetric(horizontal: 80),
           decoration: BoxDecoration(
               color: Colors.purple[200],
               borderRadius: BorderRadius.circular(30)),
           child: Center(
               child: Text("Sign In",
                   style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)))),
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)
+                      )
+                      )
+                      ),
     );
   }
 }

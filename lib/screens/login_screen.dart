@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
@@ -21,22 +22,22 @@ class LoginPage extends StatelessWidget {
             child: Center(
           child: Column(children: [
             // Logo
-            const SizedBox(height: 20), //allows us to bring down our logo
-            Image.asset('assets/images/logo.png', width: 180),
+            const SizedBox(height: 10), //allows us to bring down our logo
+            Image.asset('assets/images/logo.png', width: 150),
 
             // Greetings -  wellbeing Junction
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 5), //allows padding
             const Text(
               'Welcome to Wellbeing Junction!',
               style: TextStyle(
                   color: Color.fromARGB(255, 210, 106, 228),
-                  fontSize: 30,
+                  fontSize: 25,
                   fontFamily: 'DancingScript',
                   fontWeight: FontWeight.w800),
             ),
 
             //Email textfield
-            const SizedBox(height: 20), //allows padding
+            const SizedBox(height: 10), //allows padding
             TextFieldElement(
               controller: emailController,
               hinText: 'Email',
@@ -44,7 +45,7 @@ class LoginPage extends StatelessWidget {
             ), //Call the method saved in elements folder to avoid repetion of UI text code
 
             //Password textfield
-            const SizedBox(height: 20), //allows padding
+            const SizedBox(height: 10), //allows padding
             TextFieldElement(
               controller: passwordController,
               hinText: 'Password',
@@ -69,7 +70,10 @@ class LoginPage extends StatelessWidget {
             const DividerElement(),
 
             //Google authentication
-            Row(children: [Image.asset('assets/images/google.jpg')])
+            const SizedBox(height: 10), //allows padding
+            SquareBox(
+              imagePath: 'assets/images/google.jpg',
+            ),
 
             //Register as new members
           ]),
