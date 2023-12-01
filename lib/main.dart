@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner:
           false, //turns off the debug banner shown in app
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
