@@ -4,8 +4,8 @@ import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class SignUPPage extends StatelessWidget {
+  SignUPPage({super.key});
 
   // Controllers for textfield
   final emailController = TextEditingController();
@@ -22,11 +22,11 @@ class LoginPage extends StatelessWidget {
             child: Center(
           child: Column(children: [
             // Logo
-            //const SizedBox(height: 10), //allows us to bring down our logo
-            Image.asset('assets/images/logo.png', width: 250),
+            //const SizedBox(height: 40), //allows us to bring down our logo
+            Image.asset('assets/images/logo.png', width: 200),
 
             //Email textfield
-            // const SizedBox(height: 15), //allows padding
+            const SizedBox(height: 10), //allows padding
             TextFieldElement(
               controller: emailController,
               hinText: 'Email',
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
             ), //Call the method saved in elements folder to avoid repetion of UI text code
 
             //Password textfield
-            const SizedBox(height: 15), //allows padding
+            const SizedBox(height: 10), //allows padding
             TextFieldElement(
               controller: passwordController,
               hinText: 'Password',
@@ -42,33 +42,15 @@ class LoginPage extends StatelessWidget {
             ),
 
             //Log in button
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 20), //allows padding
             ButtonElement(
               onTap: signInUser,
             ),
 
-            //Forget password?
+            //Take back to login screen
             const SizedBox(height: 10), //allows padding
             Text(
-              'Forget Password?',
-              style: TextStyle(color: Colors.grey[700]),
-            ),
-
-            // Divider Element to allow userss sign in using alternative method
-            const SizedBox(height: 10), //allows padding
-            const DividerElement(),
-
-            //Google authentication
-            const SizedBox(height: 10), //allows padding
-            const SquareBox(
-              imagePath: 'assets/images/google.jpg',
-            ),
-            const Text('Login with Google'),
-
-            //Register as new members
-            const SizedBox(height: 10), //allows padding
-            Text(
-              'Are you new here? Sign Up',
+              'Already have an account? Log In',
               style: TextStyle(color: Colors.grey[700]),
             ),
           ]),

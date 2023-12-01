@@ -14,17 +14,19 @@ class DividerElement extends StatelessWidget {
           Expanded(
             child: Divider(
               thickness: 1.0,
-              color: Colors.purple[200],
+              color: const Color.fromARGB(242, 208, 169, 1),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Text('Or Use', style: TextStyle(color: Colors.purple[500])),
+            child: Text('Or Use',
+                style:
+                    TextStyle(color: const Color.fromARGB(255, 242, 208, 169))),
           ),
           Expanded(
             child: Divider(
               thickness: 1.0,
-              color: Colors.purple[200],
+              color: const Color.fromARGB(242, 208, 169, 1),
             ),
           ),
         ],

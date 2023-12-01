@@ -13,15 +13,12 @@ class ButtonElement extends StatelessWidget {
           padding: const EdgeInsets.all(18),
           margin: const EdgeInsets.symmetric(horizontal: 80),
           decoration: BoxDecoration(
-              color: Colors.purple[200],
+              color: const Color.fromARGB(255, 242, 208, 169),
               borderRadius: BorderRadius.circular(30)),
           child: Center(
               child: Text("Sign In",
                   style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)
-                      )
-                      )
-                      ),
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)))),
     );
   }
 }

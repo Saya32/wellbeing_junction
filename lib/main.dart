@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/screens/signup_screen.dart';
 import 'screens/login_screen.dart';
 
 void main() {

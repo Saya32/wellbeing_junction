@@ -25,7 +25,8 @@ class TextFieldElement extends StatelessWidget {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color.fromARGB(255, 204, 70, 231))),
+              borderSide:
+                  BorderSide(color: Color.fromARGB(255, 242, 208, 169))),
           hintText: hinText,
         ),
       ),
