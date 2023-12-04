@@ -16,24 +16,34 @@ void signOutUser() {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    //https://www.edureka.co/community/231021/how-do-i-set-background-image-in-flutter
     return Scaffold(
-      appBar: AppBar(title: const Text("Mental Insight"), actions: const [
-        IconButton(
-          onPressed: signOutUser,
-          icon: Icon(Icons.logout),
-        )
-      ]),
-      body: SafeArea(
-        child: Center(
-          child: Column(children: [
-            Image.asset("assets/images/background.jpg"),
-
-            const SizedBox(height: 10), //allows padding
-            ButtonElement(onTap: () {}, text: "Questionnaires"),
-          ]),
-        ),
-      ),
-    );
+        appBar: AppBar(title: const Text("Mental Insight"), actions: const [
+          IconButton(
+            onPressed: signOutUser,
+            icon: Icon(Icons.logout),
+          )
+        ]),
+        body: Stack(
+          children: <Widget>[
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/background.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(18),
+                  child: Center(
+                    child: ButtonElement(onTap: () {}, text: "Questionnaires"),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 }
