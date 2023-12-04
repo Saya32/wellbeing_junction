@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/elements/button.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -23,12 +24,14 @@ class _DashboardState extends State<Dashboard> {
           icon: Icon(Icons.logout),
         )
       ]),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/background.jpg"),
-            fit: BoxFit.cover,
-          ),
+      body: SafeArea(
+        child: Center(
+          child: Column(children: [
+            Image.asset("assets/images/background.jpg"),
+
+            const SizedBox(height: 10), //allows padding
+            ButtonElement(onTap: () {}, text: "Questionnaires"),
+          ]),
         ),
       ),
     );
