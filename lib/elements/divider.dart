@@ -10,23 +10,22 @@ class DividerElement extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
-        children: [
+        children: const [
           Expanded(
             child: Divider(
               thickness: 1.0,
-              color: const Color.fromARGB(242, 208, 169, 1),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text('Or Use',
-                style:
-                    TextStyle(color: const Color.fromARGB(255, 242, 208, 169))),
+                style: TextStyle(color: Color.fromARGB(255, 98, 97, 95))),
           ),
           Expanded(
             child: Divider(
               thickness: 1.0,
-              color: const Color.fromARGB(242, 208, 169, 1),
+              color: Color.fromRGBO(0, 0, 0, 1),
             ),
           ),
         ],

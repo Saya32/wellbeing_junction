@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class TextFieldElement extends StatelessWidget {
-  final controller; // access what users typed in the textfield
+  final TextEditingController
+      controller; // access what users typed in the textfield
   final String hinText; // gives user a hint as to what to type in textfield
   final bool
       obscureText; //hides the characters when typing passport so boolean function
@@ -25,8 +24,7 @@ class TextFieldElement extends StatelessWidget {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide:
-                  BorderSide(color: Color.fromARGB(255, 242, 208, 169))),
+              borderSide: const BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
           hintText: hinText,
         ),
       ),

@@ -1,32 +1,42 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  final Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // Controllers for textfield
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  // Sign In User
-  void signInUser() {}
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         body: SafeArea(
             child: Center(
           child: Column(children: [
+            // Background(),
             // Logo
-            //const SizedBox(height: 10), //allows us to bring down our logo
-            Image.asset('assets/images/logo.png', width: 250),
+            Image.asset('assets/images/logo.png', width: 200),
 
             //Email textfield
-            // const SizedBox(height: 15), //allows padding
             TextFieldElement(
               controller: emailController,
               hinText: 'Email',
@@ -43,15 +53,16 @@ class LoginPage extends StatelessWidget {
 
             //Log in button
             const SizedBox(height: 10), //allows padding
-            ButtonElement(
-              onTap: signInUser,
-            ),
+            ButtonElement(onTap: signUserIn, text: "Log in"),
 
             //Forget password?
             const SizedBox(height: 10), //allows padding
             Text(
               'Forget Password?',
-              style: TextStyle(color: Colors.grey[700]),
+              style: TextStyle(
+                  color: Colors.grey[700],
+                  decoration: TextDecoration.underline,
+                  fontWeight: FontWeight.bold),
             ),
 
             // Divider Element to allow userss sign in using alternative method
@@ -61,15 +72,30 @@ class LoginPage extends StatelessWidget {
             //Google authentication
             const SizedBox(height: 10), //allows padding
             const SquareBox(
-              imagePath: 'assets/images/google.jpg',
+              imagePath: 'assets/images/google.png',
             ),
-            const Text('Login with Google'),
 
             //Register as new members
             const SizedBox(height: 10), //allows padding
-            Text(
-              'Are you new here? Sign Up',
-              style: TextStyle(color: Colors.grey[700]),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Are you new here?',
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                      )),
+                  GestureDetector(
+                      onTap: widget.onTap,
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                            color: Colors.grey[700],
+                            decoration: TextDecoration.underline,
+                            fontWeight: FontWeight.bold),
+                      )),
+                ],
+              ),
             ),
           ]),
         )));

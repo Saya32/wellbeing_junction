@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "5905061053",
+    "project_id": "mental-insight",
+    "storage_bucket": "mental-insight.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5905061053:android:17e7423e09a08414c0d3d4",
+        "android_client_info": {
+          "package_name": "com.example.wellbeing_junction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5905061053-im44u1ji20rogn5n1pij63c84l0qjcrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSlAIXkYbh0EM41adV5nK_dKikD_0HmVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5905061053-im44u1ji20rogn5n1pij63c84l0qjcrp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "5905061053-77cfdjmjvm0oqj7opo1nsprgfts1has3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wellbeingJunction.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
