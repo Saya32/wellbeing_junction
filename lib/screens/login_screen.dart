@@ -4,6 +4,7 @@ import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
+import 'package:wellbeing_junction/screens/forgot_password_screen.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text,
       );
     } on FirebaseAuthException catch (e) {
-      showMessage(e.code);
+      showMessage("${e.message}");
     }
   }
 
@@ -48,10 +49,11 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(children: [
             // Background(),
             // Logo
-            Image.asset('assets/images/logo.png', width: 200),
+            const SizedBox(height: 40), //allows padding
+            Image.asset('assets/images/logo.png', width: 100),
 
             //Email textfield
-            const SizedBox(height: 20), //allows padding
+            const SizedBox(height: 70), //allows padding
             TextFieldElement(
               controller: emailController,
               hinText: 'Email',
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
             ), //Call the method saved in elements folder to avoid repetion of UI text code
 
             //Password textfield
-            const SizedBox(height: 15), //allows padding
+            const SizedBox(height: 25), //allows padding
             TextFieldElement(
               controller: passwordController,
               hinText: 'Password',
@@ -72,12 +74,24 @@ class _LoginPageState extends State<LoginPage> {
 
             //Forget password?
             const SizedBox(height: 10), //allows padding
-            Text(
-              'Forget Password?',
-              style: TextStyle(
-                  color: Colors.grey[700],
-                  decoration: TextDecoration.underline,
-                  fontWeight: FontWeight.bold),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const ForgetPassword();
+                    },
+                  ),
+                );
+              },
+              child: Text(
+                'Forget Password?',
+                style: TextStyle(
+                    color: Colors.grey[700],
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
 
             // Divider Element to allow userss sign in using alternative method

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/elements/box.dart';
@@ -16,22 +17,45 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final confirmpasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final firstNameController = TextEditingController();
+
+  void dispose() {
+    // to prevent memory leaks
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    firstNameController.dispose();
+    super.dispose();
+  }
 
   void signUserIn() async {
-    if (passwordController.text != confirmpasswordController.text) {
+    if (passwordController.text != confirmPasswordController.text) {
       showMessage("Password don't match!");
       return;
     }
-
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      userDetails(
+        firstNameController.text.trim(),
+        emailController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
       // Handle different FirebaseAuthException errors
-      showMessage(e.code);
+      showMessage("${e.message}");
+    }
+  }
+
+  Future<void> userDetails(String firstName, String email) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+        'first name': firstName,
+        'email': email,
+      });
     }
   }
 
@@ -54,11 +78,19 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             children: [
               // Logo
+              const SizedBox(height: 40), //allows padding
               //const SizedBox(height: 40), //allows us to bring down our logo
-              Image.asset('assets/images/logo.png', width: 200),
+              Image.asset('assets/images/logo.png', width: 100),
+
+              const SizedBox(height: 20), //allows padding //allows padding
+              TextFieldElement(
+                controller: firstNameController,
+                hinText: 'First Name',
+                obscureText: false,
+              ),
 
               //Email textfield
-              const SizedBox(height: 15), //allows padding
+              const SizedBox(height: 15), //allows padding //allows padding
               TextFieldElement(
                 controller: emailController,
                 hinText: 'Email',
@@ -66,16 +98,16 @@ class _SignUpPageState extends State<SignUpPage> {
               ), //Call the method saved in elements folder to avoid repetion of UI text code
 
               //Password textfield
-              const SizedBox(height: 10), //allows padding
+              const SizedBox(height: 15), //allows padding
               TextFieldElement(
                 controller: passwordController,
                 hinText: 'Password',
                 obscureText: true,
               ),
 
-              const SizedBox(height: 10), //allows padding
+              const SizedBox(height: 15), //allows padding
               TextFieldElement(
-                controller: confirmpasswordController,
+                controller: confirmPasswordController,
                 hinText: 'Confirm Password',
                 obscureText: true,
               ),
@@ -85,7 +117,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ButtonElement(onTap: signUserIn, text: "Sign Up"),
 
               // Divider Element to allow userss sign in using alternative method
-              const SizedBox(height: 30), //allows padding
+              const SizedBox(height: 20), //allows padding
               const DividerElement(),
 
               //Google authentication
