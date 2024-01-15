@@ -19,9 +19,23 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      showMessage(e.code);
+    }
+  }
+
+  void showMessage(String message) {
+    //display error to users
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(message),
+      ),
     );
   }
 
@@ -37,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset('assets/images/logo.png', width: 200),
 
             //Email textfield
+            const SizedBox(height: 20), //allows padding
             TextFieldElement(
               controller: emailController,
               hinText: 'Email',
@@ -52,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             //Log in button
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 20), //allows padding
             ButtonElement(onTap: signUserIn, text: "Log in"),
 
             //Forget password?
@@ -66,17 +81,17 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             // Divider Element to allow userss sign in using alternative method
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 40), //allows padding
             const DividerElement(),
 
             //Google authentication
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 30), //allows padding
             const SquareBox(
-              imagePath: 'assets/images/google.png',
-            ),
+                imagePath: 'assets/images/google.png',
+                text: "Login with Google"),
 
             //Register as new members
-            const SizedBox(height: 10), //allows padding
+            const SizedBox(height: 20), //allows padding
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

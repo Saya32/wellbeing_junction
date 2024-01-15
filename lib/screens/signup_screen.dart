@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
+import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -15,6 +18,33 @@ class _SignUpPageState extends State<SignUpPage> {
   final passwordController = TextEditingController();
   final confirmpasswordController = TextEditingController();
 
+  void signUserIn() async {
+    if (passwordController.text != confirmpasswordController.text) {
+      showMessage("Password don't match!");
+      return;
+    }
+
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      // Handle different FirebaseAuthException errors
+      showMessage(e.code);
+    }
+  }
+
+  void showMessage(String message) {
+    //display error to users
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(message),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Image.asset('assets/images/logo.png', width: 200),
 
               //Email textfield
-              const SizedBox(height: 10), //allows padding
+              const SizedBox(height: 15), //allows padding
               TextFieldElement(
                 controller: emailController,
                 hinText: 'Email',
@@ -52,10 +82,21 @@ class _SignUpPageState extends State<SignUpPage> {
 
               //Log in button
               const SizedBox(height: 20), //allows padding
-              ButtonElement(onTap: () {}, text: "Sign Up"),
+              ButtonElement(onTap: signUserIn, text: "Sign Up"),
+
+              // Divider Element to allow userss sign in using alternative method
+              const SizedBox(height: 30), //allows padding
+              const DividerElement(),
+
+              //Google authentication
+              const SizedBox(height: 20), //allows padding
+              const SquareBox(
+                imagePath: 'assets/images/google.png',
+                text: "Sign Up with Google",
+              ),
 
               //Take back to login screen
-              const SizedBox(height: 10), //allows padding
+              const SizedBox(height: 15), //allows padding
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -72,8 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               color: Colors.grey[700],
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.bold),
-                        )
-                        ),
+                        )),
                   ],
                 ),
               ),

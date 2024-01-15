@@ -5,7 +5,7 @@ import 'package:wellbeing_junction/auth/auth_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Initalise the firebase
-  await Firebase.initializeApp(
+  await Firebase.initializeApp( 
     options: DefaultFirebaseOptions
         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
   );
