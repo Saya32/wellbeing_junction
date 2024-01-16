@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
@@ -100,7 +101,8 @@ class _LoginPageState extends State<LoginPage> {
 
             //Google authentication
             const SizedBox(height: 30), //allows padding
-            const SquareBox(
+            SquareBox(
+                onTap: () => AuthService().signInWithGoogle(),
                 imagePath: 'assets/images/google.png',
                 text: "Login with Google"),
 

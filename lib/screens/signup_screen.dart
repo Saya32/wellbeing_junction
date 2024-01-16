@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/elements/box.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/divider.dart';
@@ -122,7 +123,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
               //Google authentication
               const SizedBox(height: 20), //allows padding
-              const SquareBox(
+              SquareBox(
+                onTap: () => AuthService().signInWithGoogle(),
                 imagePath: 'assets/images/google.png',
                 text: "Sign Up with Google",
               ),
