@@ -1,18 +1,31 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wellbeing_junction/elements/button.dart';
 
-class SelfAssessmentQuiz extends StatefulWidget {
+class SelfAssessmentQuiz extends StatelessWidget {
   const SelfAssessmentQuiz({super.key});
 
   @override
-  State<SelfAssessmentQuiz> createState() => _SelfAssessmentQuizState();
-}
-
-class _SelfAssessmentQuizState extends State<SelfAssessmentQuiz> {
-  @override
   Widget build(BuildContext context) {
-    return const Text('Self Assessment Quiz Feature Coming Soon...');
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                //  Get.toNamed('/dass21'); // Navigate to DASS-21 quiz screen
+              },
+              child: const Text('Take DASS-21 Quiz'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Get.toNamed('/gad7'); // Navigate to GAD-7 quiz screen
+              },
+              child: const Text('Take GAD-7 Quiz'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

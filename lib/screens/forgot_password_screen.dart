@@ -13,6 +13,7 @@ class ForgetPassword extends StatefulWidget {
 class _ForgetPasswordState extends State<ForgetPassword> {
   final emailController = TextEditingController();
 
+  @override
   void dispose() {
     // to prevent memory leaks
     emailController.dispose();
@@ -44,12 +45,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forget Password'),
+        title: const Text('Forget Password'),
       ),
       body: Column(
         children: [
           const SizedBox(height: 70), //allows padding
-          Center(
+          const Center(
             child: Text('Enter your email to receive reset password link'),
           ),
           const SizedBox(height: 20), //allows padding

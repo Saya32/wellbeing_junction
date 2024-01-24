@@ -21,6 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final confirmPasswordController = TextEditingController();
   final firstNameController = TextEditingController();
 
+  @override
   void dispose() {
     // to prevent memory leaks
     emailController.dispose();

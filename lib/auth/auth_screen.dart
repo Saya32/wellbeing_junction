@@ -14,7 +14,7 @@ class Authentication extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             //if user is logged in then we will direct them to dashboard
-            return Dashboard();
+            return const Dashboard();
           } else {
             return const WelcomePage(); // else they will be in welcome page
           }

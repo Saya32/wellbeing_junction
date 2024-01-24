@@ -20,8 +20,8 @@ class SquareBox extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 100),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(0, 0, 0, 1),
-                border: Border.all(color: Color.fromRGBO(0, 0, 0, 1))),
+                color: const Color.fromRGBO(0, 0, 0, 1),
+                border: Border.all(color: const Color.fromRGBO(0, 0, 0, 1))),
             child: Row(
               children: [
                 Image.asset(

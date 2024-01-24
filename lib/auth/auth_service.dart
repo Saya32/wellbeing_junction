@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+// https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google
+//https://firebase.google.com/docs/auth/flutter/federated-auth
+
 class AuthService {
   signInWithGoogle() async {
     // load new page
