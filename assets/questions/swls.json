@@ -1,0 +1,74 @@
+{
+    "id": "swls",
+    "title": "SATISFACTION WITH LIFE SCALE",
+    "image_url": "",
+    "Description": "SWLS measures an individual's subjective satisfaction with their life such as overall happiness and fulfillment. ",
+    "questions": [
+        {
+          "id": "swlsq1",
+          "question": " In most ways my life is close to my ideal. ",
+          "options": [
+            {"text": " Strongly disagree", "points": 1},
+            {"text": "Disagree", "points": 2},
+            {"text": "Slightly disagree", "points": 3},
+            {"text": "Neither agree nor disagree", "points": 4},
+            {"text": "Slightly agree", "points": 5},
+            {"text": "Agree", "points": 6},
+            {"text": "Strongly agree", "points": 7}
+          ]
+        },
+        {
+          "id": "swlsq2",
+          "question": "The conditions of my life are excellent.",
+          "options": [
+            {"text": " Strongly disagree", "points": 1},
+            {"text": "Disagree", "points": 2},
+            {"text": "Slightly disagree", "points": 3},
+            {"text": "Neither agree nor disagree", "points": 4},
+            {"text": "Slightly agree", "points": 5},
+            {"text": "Agree", "points": 6},
+            {"text": "Strongly agree", "points": 7}
+          ]
+        },
+        {
+          "id": "swlsq3",
+          "question": " I am satisfied with my life.",
+          "options": [
+            {"text": " Strongly disagree", "points": 1},
+            {"text": "Disagree", "points": 2},
+            {"text": "Slightly disagree", "points": 3},
+            {"text": "Neither agree nor disagree", "points": 4},
+            {"text": "Slightly agree", "points": 5},
+            {"text": "Agree", "points": 6},
+            {"text": "Strongly agree", "points": 7}
+          ]
+        },
+        {
+          "id": "swlsq4",
+          "question": " So far I have gotten the important things I want in life.",
+          "options": [
+            {"text": " Strongly disagree", "points": 1},
+            {"text": "Disagree", "points": 2},
+            {"text": "Slightly disagree", "points": 3},
+            {"text": "Neither agree nor disagree", "points": 4},
+            {"text": "Slightly agree", "points": 5},
+            {"text": "Agree", "points": 6},
+            {"text": "Strongly agree", "points": 7}
+          ]
+        },
+        {
+          "id": "swlsq5",
+          "question": " If I could live my life over, I would change almost nothing.",
+          "options": [
+            {"text": " Strongly disagree", "points": 1},
+            {"text": "Disagree", "points": 2},
+            {"text": "Slightly disagree", "points": 3},
+            {"text": "Neither agree nor disagree", "points": 4},
+            {"text": "Slightly agree", "points": 5},
+            {"text": "Agree", "points": 6},
+            {"text": "Strongly agree", "points": 7}
+          ]
+        }
+      ]
+    }
+    

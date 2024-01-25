@@ -1,0 +1,219 @@
+{
+    "id": "bai",
+    "title": "Beck Anxiety Inventory (BAI)",
+    "image_url": "",
+    "Description": "BAI is  used to measure the severity of anxiety symptoms in individuals. ",
+    "questions": [
+        {
+          "id": "baiq1",
+          "question": "Feeling hot",
+          "options": [
+            {"text": "Not at all", "points": 0},
+            {"text": "Mildly but it didn’t bother me much", "points": 1},
+            {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+            {"text": "Severely – it bothered me a lot", "points": 3}
+          ]
+        },
+        {
+          "id": "baiq2",
+          "question": "Wobbliness in legs",
+          "options": [
+            {"text": "Not at all", "points": 0},
+            {"text": "Mildly but it didn’t bother me much", "points": 1},
+            {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+            {"text": "Severely – it bothered me a lot", "points": 3}
+          ]
+        },
+        {
+          "id": "baiq3",
+          "question": "Unable to relax",
+          "options": [
+            {"text": "Not at all", "points": 0},
+            {"text": "Mildly but it didn’t bother me much", "points": 1},
+            {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+            {"text": "Severely – it bothered me a lot", "points": 3}
+          ]
+        },
+        {
+          "id": "baiq4",
+          "question": "Fear of worst happening",
+          "options": [
+            {"text": "Not at all", "points": 0},
+            {"text": "Mildly but it didn’t bother me much", "points": 1},
+            {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+            {"text": "Severely – it bothered me a lot", "points": 3}
+          ]
+        },
+        {
+          "id": "baiq5",
+          "question": "Dizzy or lightheaded",
+          "options": [
+            {"text": "Not at all", "points": 0},
+            {"text": "Mildly but it didn’t bother me much", "points": 1},
+            {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+            {"text": "Severely – it bothered me a lot", "points": 3}
+          ]
+        },
+        {
+            "id": "baiq6",
+            "question": "Heart pounding/racing",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq7",
+            "question": "Unsteady",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq8",
+            "question": "Terrified or afraid",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq9",
+            "question": "Nervous",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq10",
+            "question": "Feeling of choking",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq11",
+            "question": "Hands trembling",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq12",
+            "question": "Shaky / unsteady",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq13",
+            "question": "Fear of losing control",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq14",
+            "question": "Difficulty in breathing",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq15",
+            "question": "Fear of dying",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq16",
+            "question": "Scared",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq17",
+            "question": "Indigestion",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq18",
+            "question": "Faint / lightheaded",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq19",
+            "question": "Face flushed",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq20",
+            "question": "Hot/cold sweats",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          },
+          {
+            "id": "baiq21",
+            "question": "Numbness or tingling",
+            "options": [
+              {"text": "Not at all", "points": 0},
+              {"text": "Mildly but it didn’t bother me much", "points": 1},
+              {"text": "Moderately - it wasn’t pleasant at times", "points": 2},
+              {"text": "Severely – it bothered me a lot", "points": 3}
+            ]
+          }
+      ]
+    }
+    

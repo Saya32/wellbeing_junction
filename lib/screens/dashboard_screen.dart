@@ -13,11 +13,6 @@ class Dashboard extends StatefulWidget {
   State<Dashboard> createState() => _DashboardState();
 }
 
-void signOutUser() {
-  // Sign out the user
-  FirebaseAuth.instance.signOut();
-}
-
 class _DashboardState extends State<Dashboard> {
   final currentUser = FirebaseAuth.instance.currentUser!;
 

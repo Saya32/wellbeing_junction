@@ -1,28 +1,29 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wellbeing_junction/controllers/questionnaire/quiz_data_uploader_screen.dart';
 import 'package:wellbeing_junction/firebase_options.dart';
 import 'package:wellbeing_junction/auth/auth_screen.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Initalise the firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions
         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
   );
-  runApp(const MyApp());
+  //runApp(const MyApp());
+  runApp(GetMaterialApp(home: QuizDataUploadScreen()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner:
-          false, //turns off the debug banner shown in app
-      home: Authentication(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       debugShowCheckedModeBanner:
+//           false, //turns off the debug banner shown in app
+//       home: Authentication(),
+//     );
+//   }
+// }
