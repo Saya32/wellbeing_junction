@@ -37,14 +37,20 @@ class GeneralQuestionModel {
 class Questions {
   String id;
   String question;
+  String? category;
   List<Options> options;
 
-  Questions({required this.id, required this.question, required this.options});
+  Questions(
+      {required this.id,
+      required this.question,
+      required this.category,
+      required this.options});
 
   Questions.fromJson(Map<String, dynamic> json)
       : //with : the valu gets initialised before the constructor body runs
         id = json['id'],
         question = json['question'],
+        category = json['category'],
         options = (json['options'] as List)
             .map((e) => Options.fromJson(e as Map<String, dynamic>))
             .toList();
@@ -53,6 +59,7 @@ class Questions {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['question'] = question;
+    data['category'] = category;
     data['options'] = options.map((v) => v.toJson()).toList();
     return data;
   }

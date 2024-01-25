@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/quiz_data_uploader.dart';
+import 'package:wellbeing_junction/firebase_questionnaire_collection/update_status.dart';
 
 // ignore: must_be_immutable
 class QuizDataUploadScreen extends StatelessWidget {
@@ -9,9 +10,12 @@ class QuizDataUploadScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Center(
-      child: Text("Uploading"),
+      child: Obx(() => Text(
+          controller.updateStatus.value == UpdateStatus.completed
+              ? "Complete Uploaded"
+              : "uploading")),
     ));
   }
 }

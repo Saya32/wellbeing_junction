@@ -8,232 +8,232 @@
         "id": "dass21q1",
         "question": "I found it hard to wind down.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q2",
         "question": "I was aware of dryness of my mouth.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q3",
         "question": "I couldn’t seem to experience any positive feeling at all.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q4",
         "question": "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q5",
         "question": "I found it difficult to work up the initiative to do things",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q6",
         "question": "I tended to over-react to situations",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q7",
         "question": "I experienced trembling (e.g. in the hands).",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q8",
         "question": "I felt that I was using a lot of nervous energy",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q9",
         "question": "I was worried about situations in which I might panic and make a fool of myself .",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q10",
         "question": "I felt that I had nothing to look forward to.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q11",
         "question": "I found myself getting agitated ",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q12",
         "question": "I found it difficult to relax.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
-        "id": "dass21q3",
+        "id": "dass21q13",
         "question": "I felt down-hearted and blue.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q14",
         "question": "I was intolerant of anything that kept me from getting on with what I was doing.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q15",
         "question": "I felt I was close to panic.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q16",
         "question": "I was unable to become enthusiastic about anything.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q17",
         "question": "I felt I wasn’t worth much as a person",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       },
       {
         "id": "dass21q18",
         "question": "I felt that I was rather touchy.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": true, "a": false, "d": false}
+        "category": "s"
       },
       {
         "id": "dass21q19",
         "question": "I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat)",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category": "a"
       },
       {
         "id": "dass21q20",
         "question": "I felt scared without any good reason.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": true, "d": false}
+        "category":"a"
       },
       {
         "id": "dass21q21",
         "question": "I felt that life was meaningless.",
         "options": [
-          {"text": "Did not apply to me at all", "points": {"s": 0, "a": 0, "d": 0}},
-          {"text": "Applied to me to some degree", "points": {"s": 1, "a": 1, "d": 1}},
-          {"text": "Applied to me to a considerable degree", "points": {"s": 2, "a": 2, "d": 2}},
-          {"text": "Applied to me very much", "points": {"s": 3, "a": 3, "d": 3}}
+          {"text": "Did not apply to me at all", "points": 0},
+          {"text": "Applied to me to some degree", "points": 1},
+          {"text": "Applied to me to a considerable degree", "points": 2},
+          {"text": "Applied to me very much", "points": 3}
         ],
-        "category": {"s": false, "a": false, "d": true}
+        "category": "d"
       }
     ]
   }

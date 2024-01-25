@@ -35,24 +35,41 @@ class _DashboardState extends State<Dashboard> {
     String userDocId = currentUser.uid;
 
     return Scaffold(
-      appBar: AppBar(
-        title: UserData(documentId: userDocId),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Settings',
-            onPressed: () {
-              // Navigate to settings screen or show settings overlay
-            },
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 213, 213, 100),
+                Colors.purple.shade300
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
-          IconButton(
-            onPressed: () async {
-              await GoogleSignIn().signOut();
-              FirebaseAuth.instance.signOut();
-            },
-            icon: const Icon(Icons.logout),
-          )
-        ],
+          child: AppBar(
+            title: UserData(documentId: userDocId),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.settings),
+                tooltip: 'Settings',
+                onPressed: () {
+                  // Navigate to settings screen or show settings overlay
+                },
+              ),
+              IconButton(
+                onPressed: () async {
+                  await GoogleSignIn().signOut();
+                  FirebaseAuth.instance.signOut();
+                },
+                icon: const Icon(Icons.logout),
+              )
+            ],
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
+        ),
       ),
       body: IndexedStack(
         index: selectedIndex,
