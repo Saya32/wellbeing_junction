@@ -14,16 +14,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-// Future<void> main() async {
-//   WidgetsFlutterBinding.ensureInitialized(); //Initalise the firebase
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions
-//         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
-//   );
-//   // runApp(const MyApp());
-//   // runApp(GetMaterialApp(home: QuizDataUploadScreen())); //used for uploading quiz data at backend
-// }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
