@@ -1,7 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
-//import 'package:wellbeing_junction/controllers/questionnaire/quiz_data_uploader_screen.dart';
 import 'package:wellbeing_junction/firebase_options.dart';
 import 'package:wellbeing_junction/auth/auth_screen.dart';
 

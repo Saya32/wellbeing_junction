@@ -1,7 +1,7 @@
 {
     "id": "bdi",
     "title": "Beck Depression Inventory (BDI)",
-    "image_url": "",
+    "image_url": "assets/images/bdi.jpg",
     "Description": "BDI is  used to measure the severity of depression symptoms in individuals. ",
     "questions": [
         {

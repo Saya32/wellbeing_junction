@@ -1,7 +1,7 @@
 {
     "id": "bai",
     "title": "Beck Anxiety Inventory (BAI)",
-    "image_url": "",
+    "image_url": "assets/images/bai.jpg",
     "Description": "BAI is  used to measure the severity of anxiety symptoms in individuals. ",
     "questions": [
         {

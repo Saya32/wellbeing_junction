@@ -1,7 +1,7 @@
 {
     "id": "swls",
     "title": "SATISFACTION WITH LIFE SCALE",
-    "image_url": "",
+    "image_url": "assets/images/swls.jpg",
     "Description": "SWLS measures an individual's subjective satisfaction with their life such as overall happiness and fulfillment. ",
     "questions": [
         {

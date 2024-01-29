@@ -1,7 +1,7 @@
 {
     "id": "who5",
     "title": "WHO-5 Well-being Index",
-    "image_url": "",
+    "image_url": "assets/images/who5.jpg",
     "Description": "The WHO-5 Well-Being Index consist of five positively worded statements that assess an individual's well-being over the past two weeks. ",
     "questions": [
         {

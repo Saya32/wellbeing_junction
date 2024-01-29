@@ -1,7 +1,7 @@
 {
   "id": "pss",
   "title": "Perceived Stress Scale",
-  "image_url": "",
+  "image_url": "assets/images/pss.jpg",
   "Description": "PSS measure the level of stress in individuals by assessing thoughts and feelings related to stress experienced over the past month.",
   "questions": [
       {
