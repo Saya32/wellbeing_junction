@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-class FirebaseService {
-  final CollectionReference selfAssessmentCollection =
-      FirebaseFirestore.instance.collection('selfAssessmentQuestionnaire');
-
-  Future<List<QueryDocumentSnapshot>> getQuizzes() async {
-    QuerySnapshot snapshot = await selfAssessmentCollection.get();
-    return snapshot.docs;
-  }
-}
+import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
+import 'package:wellbeing_junction/models/normal_question_model.dart';
+import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
 
 class QuizListScreen extends StatelessWidget {
   final FirebaseService firebaseService = FirebaseService();
+  
 
   QuizListScreen({super.key});
 
@@ -46,7 +40,6 @@ class QuizListScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   var quiz =
                       snapshot.data?[index].data() as Map<String, dynamic>?;
-
                   if (quiz == null) {
                     // Handle null case
                     return const ListTile(
@@ -112,20 +105,6 @@ class QuizListScreen extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-}
-
-class QuizDetailsScreen extends StatelessWidget {
-  final String quizId;
-
-  const QuizDetailsScreen({super.key, required this.quizId});
-
-  @override
-  Widget build(BuildContext context) {
-    // Fetch and display questions for the selected quiz using the quizId
-    return Scaffold(
-      body: Text('Display questions for quiz: $quizId'),
     );
   }
 }
