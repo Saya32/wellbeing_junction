@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
 // refrence: https://jsontodart.com/
 
 class GeneralQuestionModel {
@@ -15,6 +16,9 @@ class GeneralQuestionModel {
       required this.description,
       required this.questions});
 
+  factory GeneralQuestionModel.fromString(String jsonString) =>
+      GeneralQuestionModel.fromJson(json.decode(jsonString));
+
   GeneralQuestionModel.fromJson(Map<String, dynamic> json)
       : id = json['id'] as String,
         title = json['title'] as String,
@@ -23,6 +27,14 @@ class GeneralQuestionModel {
         questions = (json['questions'] as List)
             .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
+
+  GeneralQuestionModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> snapshot)
+      : id = snapshot.id,
+        title = snapshot['title'],
+        imageUrl = snapshot['image_url'],
+        description = snapshot['Description'],
+        questions = [];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -38,6 +50,7 @@ class Questions {
   String id;
   String question;
   String? category;
+  String? selectedOption;
   List<Options> options;
 
   Questions(
@@ -45,6 +58,12 @@ class Questions {
       required this.question,
       required this.category,
       required this.options});
+
+  Questions.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : id = snapshot.id,
+        question = snapshot['question'],
+        category = snapshot['category'],
+        options = [];
 
   Questions.fromJson(Map<String, dynamic> json)
       : //with : the valu gets initialised before the constructor body runs
@@ -66,17 +85,17 @@ class Questions {
 }
 
 class Options {
-  String? text;
-  int? points;
+  final String text;
+  final int? points;
 
-  Options({this.text, this.points});
+  Options({required this.text, required this.points});
 
   Options.fromJson(Map<String, dynamic> json)
-      : text = json['text'] as String?,
+      : text = json['text'] as String,
         points = int.tryParse(json['points'].toString());
 
   Options.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
-      : text = snapshot['text'] as String?,
+      : text = snapshot['text'] as String,
         points = snapshot['points'] as int?;
 
   Map<String, dynamic> toJson() => {'text': text, 'points': points};

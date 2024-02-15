@@ -1,18 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FirebaseService {
-  final CollectionReference selfAssessmentCollection =
-      FirebaseFirestore.instance.collection('selfAssessmentQuestionnaire');
-
-  Future<List<QueryDocumentSnapshot>> getQuizzes() async {
-    QuerySnapshot snapshot = await selfAssessmentCollection.get();
-    return snapshot.docs;
-  }
-}
-
-final fireStore = FirebaseFirestore.instance;
-final questionnaireCollection =
-    fireStore.collection('selfAssessmentQuestionnaire');
+final db = FirebaseFirestore.instance;
+final questionnaireCollection = db.collection('selfAssessmentQuestionnaire');
 
 //create a new document collection based on previous collection id ==> needed during upoading JSON
 DocumentReference questionReference({
@@ -23,3 +12,18 @@ DocumentReference questionReference({
         .doc(questionnaireId)
         .collection("questions")
         .doc(questionId);
+
+class RetrieveFirebaseQuiz {
+  Stream<QuerySnapshot<Map<String, dynamic>>> getQuizData() {
+    return questionnaireCollection.snapshots();
+  }
+
+  // getQuestionData(String quizId) async{
+  //   return await db
+  //       .collection("selfAssessmentQuestionnaire")
+  //       ..doc(quizId)
+  //       .collection("questions")
+  //       .doc(individualquestionID)
+  //       .getDocuments();
+  // }
+}

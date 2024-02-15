@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> _widgetOptions = <Widget>[
     const MoodTracker(),
     const HabitBuilder(),
-    QuizListScreen(),
+    const QuizPaperScreen(),
   ];
 
   void currentScreen(int index) {
