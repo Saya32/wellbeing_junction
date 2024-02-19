@@ -1,7 +1,11 @@
+// Modification for code using: https://stackoverflow.com/questions/73834905/flutter-streambuilder-widget-error-type-mapstring-dynamic-is-not
+//https://medium.com/quick-code/reading-lists-from-firestore-using-streambuilder-in-flutter-eda590f461ed
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
+import 'package:wellbeing_junction/elements/background.dart';
 import 'package:wellbeing_junction/elements/quiz_tile.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/screens/dashboard_screen.dart';
@@ -67,8 +71,12 @@ class _QuizPaperScreen extends State<QuizPaperScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: quizList(),
+      body: Stack(
+        children: <Widget>[
+          const Background(),
+          quizList(),
+        ],
+      ),
     );
   }
 }

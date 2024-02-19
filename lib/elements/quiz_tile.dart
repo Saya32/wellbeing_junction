@@ -24,16 +24,19 @@ class QuizTile extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         height: 150,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Stack(
             children: [
-              Image.asset(
-                imageUrl,
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
+              Opacity(
+                opacity: 0.5,
+                child: Image.asset(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
+                ),
               ),
               Container(
                 color: Colors.black26,
@@ -43,16 +46,24 @@ class QuizTile extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23,
+                          decoration: TextDecoration.underline,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
                       Text(
                         description,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
