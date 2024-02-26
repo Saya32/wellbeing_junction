@@ -13,8 +13,8 @@ class Background extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFFD9869),
-              Color(0xFFFEC9C9),
+              Color.fromARGB(255, 234, 106, 47),
+              Color.fromARGB(255, 246, 139, 139),
             ],
           ),
         ),

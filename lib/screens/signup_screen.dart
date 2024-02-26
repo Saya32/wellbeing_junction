@@ -74,88 +74,89 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              // Logo
-              const SizedBox(height: 40), //allows padding
-              //const SizedBox(height: 40), //allows us to bring down our logo
-              Image.asset('assets/images/logo.png', width: 100),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  // Logo
+                  const SizedBox(height: 40), //allows padding
+                  //const SizedBox(height: 40), //allows us to bring down our logo
+                  Image.asset('assets/images/logo.png', width: 100),
 
-              const SizedBox(height: 20), //allows padding //allows padding
-              TextFieldElement(
-                controller: firstNameController,
-                hinText: 'First Name',
-                obscureText: false,
-              ),
+                  const SizedBox(height: 20), //allows padding //allows padding
+                  TextFieldElement(
+                    controller: firstNameController,
+                    hinText: 'First Name',
+                    obscureText: false,
+                  ),
 
-              //Email textfield
-              const SizedBox(height: 15), //allows padding //allows padding
-              TextFieldElement(
-                controller: emailController,
-                hinText: 'Email',
-                obscureText: false,
-              ), //Call the method saved in elements folder to avoid repetion of UI text code
+                  //Email textfield
+                  const SizedBox(height: 15), //allows padding //allows padding
+                  TextFieldElement(
+                    controller: emailController,
+                    hinText: 'Email',
+                    obscureText: false,
+                  ), //Call the method saved in elements folder to avoid repetion of UI text code
 
-              //Password textfield
-              const SizedBox(height: 15), //allows padding
-              TextFieldElement(
-                controller: passwordController,
-                hinText: 'Password',
-                obscureText: true,
-              ),
+                  //Password textfield
+                  const SizedBox(height: 15), //allows padding
+                  TextFieldElement(
+                    controller: passwordController,
+                    hinText: 'Password',
+                    obscureText: true,
+                  ),
 
-              const SizedBox(height: 15), //allows padding
-              TextFieldElement(
-                controller: confirmPasswordController,
-                hinText: 'Confirm Password',
-                obscureText: true,
-              ),
+                  const SizedBox(height: 15), //allows padding
+                  TextFieldElement(
+                    controller: confirmPasswordController,
+                    hinText: 'Confirm Password',
+                    obscureText: true,
+                  ),
 
-              //Log in button
-              const SizedBox(height: 20), //allows padding
-              ButtonElement(onTap: signUserIn, text: "Sign Up"),
+                  //Log in button
+                  const SizedBox(height: 20), //allows padding
+                  ButtonElement(onTap: signUserIn, text: "Sign Up"),
 
-              // Divider Element to allow userss sign in using alternative method
-              const SizedBox(height: 20), //allows padding
-              const DividerElement(),
+                  // Divider Element to allow userss sign in using alternative method
+                  const SizedBox(height: 20), //allows padding
+                  const DividerElement(),
 
-              //Google authentication
-              const SizedBox(height: 20), //allows padding
-              SquareBox(
-                onTap: () => AuthService().signInWithGoogle(),
-                imagePath: 'assets/images/google.png',
-                text: "Sign Up with Google",
-              ),
+                  //Google authentication
+                  const SizedBox(height: 20), //allows padding
+                  SquareBox(
+                    onTap: () => AuthService().signInWithGoogle(),
+                    imagePath: 'assets/images/google.png',
+                    text: "Sign Up with Google",
+                  ),
 
-              //Take back to login screen
-              const SizedBox(height: 15), //allows padding
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Already have an account?',
-                        style: TextStyle(
-                          color: Colors.grey[700],
-                        )),
-                    GestureDetector(
-                        onTap: widget.onTap,
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
+                  //Take back to login screen
+                  const SizedBox(height: 15), //allows padding
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Already have an account?',
+                            style: TextStyle(
                               color: Colors.grey[700],
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.bold),
-                        )),
-                  ],
-                ),
+                            )),
+                        GestureDetector(
+                            onTap: widget.onTap,
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.grey[700],
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

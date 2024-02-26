@@ -5,8 +5,9 @@ class QuizTile extends StatelessWidget {
   final String imageUrl, title, description, quizID;
   final int noOfQuestions;
 
-  QuizTile(
-      {required this.title,
+  const QuizTile(
+      {super.key,
+      required this.title,
       required this.imageUrl,
       required this.description,
       required this.noOfQuestions,
@@ -19,7 +20,7 @@ class QuizTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => QuizDetailsScreen(quizId: quizID),
+            builder: (_) => const QuizDetailsScreen(),
           ),
         );
       },

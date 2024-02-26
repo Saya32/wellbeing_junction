@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//https://docs.flutter.dev/cookbook/design/drawer
+
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:wellbeing_junction/read_data/user_data.dart';
 import 'package:wellbeing_junction/screens/habit_builder_screen.dart';
 import 'package:wellbeing_junction/screens/mood_tracker_screen.dart';
+import 'package:wellbeing_junction/screens/profile.dart';
 import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 
 class Dashboard extends StatefulWidget {
@@ -14,14 +14,12 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  final currentUser = FirebaseAuth.instance.currentUser!;
-
   int selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const MoodTracker(),
-    const HabitBuilder(),
+    const UserDataScreen(),
     const QuizPaperScreen(),
+    const AdviceScreen(),
   ];
 
   void currentScreen(int index) {
@@ -32,44 +30,27 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    String userDocId = currentUser.uid;
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                const Color.fromARGB(255, 213, 213, 100),
-                Colors.purple.shade300
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+        child: AppBar(
+          elevation: 0.0,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 216, 90, 32),
+                  Color.fromARGB(255, 244, 68, 68),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
           ),
-          child: AppBar(
-            title: UserData(documentId: userDocId),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.settings),
-                tooltip: 'Settings',
-                onPressed: () {
-                  // Navigate to settings screen or show settings overlay
-                },
-              ),
-              IconButton(
-                onPressed: () async {
-                  await GoogleSignIn().signOut();
-                  FirebaseAuth.instance.signOut();
-                },
-                icon: const Icon(Icons.logout),
-              )
-            ],
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-          ),
         ),
+      ),
+      drawer: const Drawer(
+        child: ProfilePage(),
       ),
       body: IndexedStack(
         index: selectedIndex,
@@ -79,15 +60,15 @@ class _DashboardState extends State<Dashboard> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.mood),
-            label: 'Mood Tracker',
+            label: 'Insight',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.build),
-            label: 'Habit Builder',
+            label: 'Self-Assessment ',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assessment),
-            label: 'Self Assessment',
+            label: 'Extra Tips',
           ),
         ],
         currentIndex: selectedIndex,

@@ -25,6 +25,8 @@ Free logo design: https://logo-maker.freelogodesign.org/en/logo/edit/038a8833fdd
 Used https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google for firebase Auth help
 Used https://firebase.google.com/docs/auth/flutter/federated-auth for firebase Auth help
 Used https://www.youtube.com/watch?v=bMTrKMcJW6k&t=1038s&ab_channel=TheFlutterNinja to start with the beginner friendly quiz app, used simple template code which are freely available!
+Used https://docs.flutter.dev/cookbook/design/drawer for drawer style of UI
+https://docs.flutter.dev/cookbook/design/drawer for the use of Drawer
 
 
 

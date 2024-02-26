@@ -46,7 +46,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         body: SafeArea(
-            child: Center(
+            child: SingleChildScrollView(
+                child: Center(
           child: Column(children: [
             // Background(),
             // Logo
@@ -129,6 +130,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ]),
-        )));
+        ))));
   }
 }
