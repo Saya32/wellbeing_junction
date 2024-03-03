@@ -21,4 +21,8 @@ class AuthService {
     // Sign in into the app
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+    bool isLogedIn() {
+    return FirebaseAuth.instance.currentUser != null;
+  }
 }

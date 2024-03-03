@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
 import 'package:wellbeing_junction/firebase_options.dart';
 import 'package:wellbeing_junction/auth/auth_screen.dart';
 
@@ -9,6 +11,9 @@ void main() async {
     options: DefaultFirebaseOptions
         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
   );
+  Get.put(QuestionController());
+
+  /// Get.put(QuizPaperController());
   runApp(const MyApp());
 }
 

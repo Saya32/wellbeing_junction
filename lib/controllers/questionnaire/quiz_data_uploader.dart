@@ -17,7 +17,8 @@ class QuizDataUploader extends GetxController {
     super.onReady();
   }
 
-  final updateStatus = UpdateStatus.updating.obs; // the status of updating is observerable
+  final updateStatus =
+      UpdateStatus.updating.obs; // the status of updating is observerable
 
   Future<void> uploadData() async {
     updateStatus.value = UpdateStatus.updating;
