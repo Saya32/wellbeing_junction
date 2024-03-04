@@ -14,13 +14,84 @@ class SelfAssessmentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuizPaperController quizPaperController = Get.find();
     return Scaffold(
-        body: Obx(() => ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              return QuizTile(model: quizPaperController.allPapers[index]);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(height: 20);
-            },
-            itemCount: quizPaperController.allPapers.length)));
+      backgroundColor: Color.fromARGB(255, 218, 126, 84),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.person_2_outlined,
+                        size: 30,
+                        color: Color.fromARGB(255, 216, 67, 67),
+                      ),
+                      Expanded(
+                        child: Text(
+                          "Hello User!",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 241, 241, 241),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Select a quiz to gain insights into your mental health. Please note that this tool is for informational purposes only and does not substitute medical or professional treatment.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 9),
+                child: Material(
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(20)),
+                  clipBehavior: Clip.hardEdge,
+                  child: Ink(
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 230, 195, 157),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        left: 10,
+                        right: 10,
+                        bottom: 10,
+                      ),
+                      child: ListView.separated(
+                        itemBuilder: (BuildContext context, int index) {
+                          return QuizTile(
+                              model: quizPaperController.allPapers[index]);
+                        },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return const SizedBox(height: 20);
+                        },
+                        itemCount: quizPaperController.allPapers.length,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

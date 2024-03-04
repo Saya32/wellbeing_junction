@@ -39,8 +39,8 @@ class _DashboardState extends State<Dashboard> {
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromARGB(255, 216, 90, 32),
-                  Color.fromARGB(255, 244, 68, 68),
+                  Color.fromARGB(255, 236, 119, 65),
+                  Color.fromARGB(255, 209, 80, 80),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
