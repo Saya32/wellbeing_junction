@@ -1,78 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
+import 'package:wellbeing_junction/models/normal_question_model.dart';
 
 class QuizTile extends StatelessWidget {
-  final String imageUrl, title, description, quizID;
-  final int noOfQuestions;
+  const QuizTile({super.key, required this.model});
 
-  const QuizTile(
-      {super.key,
-      required this.title,
-      required this.imageUrl,
-      required this.description,
-      required this.noOfQuestions,
-      required this.quizID});
+  final GeneralQuestionModel model;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => const QuizDetailsScreen(),
-          ),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        height: 150,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Stack(
+    return Padding(
+      padding: const EdgeInsets.all(9.0),
+      child: Stack(
+        children: [
+          Row(
             children: [
-              Opacity(
-                opacity: 0.5,
-                child: Image.asset(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
-              Container(
-                color: Colors.black26,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 23,
-                          decoration: TextDecoration.underline,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        description,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+              ClipRRect(
+                borderRadius: BorderRadius.circular(13),
+                child: Container(
+                  child: SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: Image.asset(
+                      model.imageUrl!,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Image.asset(
+                          "assets/images/logo.png"), // Fallback image incase there is an error while loading images
+                    ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                width: 18,
+                height: 15,
+              ),
+              Expanded(
+                child: Column(children: [
+                  Text(model.title),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Text(model.description),
+                  ),
+                ]),
               )
             ],
-          ),
-        ),
+          )
+        ],
       ),
     );
   }

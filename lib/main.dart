@@ -5,6 +5,8 @@ import 'package:wellbeing_junction/controllers/questionnaire/questions_controlle
 import 'package:wellbeing_junction/firebase_options.dart';
 import 'package:wellbeing_junction/auth/auth_screen.dart';
 
+import 'controllers/questionnaire/questionnaire_controller.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Initalise the firebase
   await Firebase.initializeApp(
@@ -12,6 +14,7 @@ void main() async {
         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
   );
   Get.put(QuestionController());
+  Get.put(QuizPaperController());
 
   /// Get.put(QuizPaperController());
   runApp(const MyApp());

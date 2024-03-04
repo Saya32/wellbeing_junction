@@ -1,76 +1,26 @@
 // Modification for code using: https://stackoverflow.com/questions/73834905/flutter-streambuilder-widget-error-type-mapstring-dynamic-is-not
 //https://medium.com/quick-code/reading-lists-from-firestore-using-streambuilder-in-flutter-eda590f461ed
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:wellbeing_junction/elements/background.dart';
+import 'package:get/get.dart';
+import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
 import 'package:wellbeing_junction/elements/quiz_tile.dart';
-import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 
-class QuizPaperScreen extends StatefulWidget {
-  const QuizPaperScreen({super.key});
-
-  @override
-  State<QuizPaperScreen> createState() => _QuizPaperScreen();
-}
-
-class _QuizPaperScreen extends State<QuizPaperScreen> {
-  late Stream<QuerySnapshot<Map<String, dynamic>>> streamQuiz;
-
-  @override
-  void initState() {
-    super.initState();
-    streamQuiz = RetrieveFirebaseQuiz().getQuizData();
-  }
-
-  Widget quizList() {
-    return Column(
-      children: [
-        StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-          stream: streamQuiz,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return const Text('Something went wrong');
-            }
-
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            }
-            return Expanded(
-              child: ListView.builder(
-                itemCount: snapshot.data?.docs.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: QuizTile(
-                      noOfQuestions: snapshot.data!.docs.length,
-                      imageUrl: snapshot.data?.docs[index].data()['image_url'],
-                      title: snapshot.data?.docs[index].data()['title'],
-                      description:
-                          snapshot.data?.docs[index].data()['description'],
-                      quizID: snapshot.data!.docs[index].id,
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
-
-  // ...
+class SelfAssessmentScreen extends StatelessWidget {
+  const SelfAssessmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    QuizPaperController quizPaperController = Get.find();
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          const Background(),
-          quizList(),
-        ],
-      ),
-    );
+        body: Obx(() => ListView.separated(
+            itemBuilder: (BuildContext context, int index) {
+              return QuizTile(model: quizPaperController.allPapers[index]);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(height: 20);
+            },
+            itemCount: quizPaperController.allPapers.length)));
   }
 }

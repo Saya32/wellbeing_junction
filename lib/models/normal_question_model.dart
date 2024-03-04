@@ -8,12 +8,14 @@ class GeneralQuestionModel {
   String? imageUrl;
   String description;
   List<Questions>? questions;
+  int questionNumbers;
 
   GeneralQuestionModel(
       {required this.id,
       required this.title,
-      required this.imageUrl,
+      this.imageUrl,
       required this.description,
+      required this.questionNumbers,
       required this.questions});
 
   factory GeneralQuestionModel.fromString(String jsonString) =>
@@ -23,7 +25,8 @@ class GeneralQuestionModel {
       : id = json['id'] as String,
         title = json['title'] as String,
         imageUrl = json['image_url'] as String,
-        description = json['Description'] as String,
+        description = json['description'] as String,
+        questionNumbers = 0,
         questions = (json['questions'] as List)
             .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
@@ -33,7 +36,8 @@ class GeneralQuestionModel {
       : id = snapshot.id,
         title = snapshot['title'],
         imageUrl = snapshot['image_url'],
-        description = snapshot['Description'],
+        description = snapshot['description'],
+        questionNumbers = snapshot['question_numbers'] as int,
         questions = [];
 
   Map<String, dynamic> toJson() {
@@ -41,7 +45,7 @@ class GeneralQuestionModel {
     data['id'] = id;
     data['title'] = title;
     data['image_url'] = imageUrl;
-    data['Description'] = description;
+    data['description'] = description;
     return data;
   }
 }

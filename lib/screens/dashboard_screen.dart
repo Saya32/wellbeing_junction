@@ -18,7 +18,7 @@ class _DashboardState extends State<Dashboard> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const UserDataScreen(),
-    const QuizPaperScreen(),
+    const SelfAssessmentScreen(),
     const AdviceScreen(),
   ];
 
