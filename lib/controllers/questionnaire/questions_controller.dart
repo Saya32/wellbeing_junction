@@ -64,5 +64,7 @@ class QuestionController extends GetxController {
         print(e.toString());
       }
     }
+
+    
   }
 }

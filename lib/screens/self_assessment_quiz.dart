@@ -1,7 +1,6 @@
 // Modification for code using: https://stackoverflow.com/questions/73834905/flutter-streambuilder-widget-error-type-mapstring-dynamic-is-not
 //https://medium.com/quick-code/reading-lists-from-firestore-using-streambuilder-in-flutter-eda590f461ed
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
@@ -14,7 +13,7 @@ class SelfAssessmentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuizPaperController quizPaperController = Get.find();
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 218, 126, 84),
+      backgroundColor: const Color.fromARGB(255, 218, 126, 84),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

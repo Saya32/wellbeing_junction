@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 
-class QuizTile extends StatelessWidget {
+class QuizTile extends GetView<QuizPaperController> {
   const QuizTile({super.key, required this.model});
 
   final GeneralQuestionModel model;
@@ -11,61 +13,66 @@ class QuizTile extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadiusDirectional.circular(15),
-          color: Color.fromARGB(255, 246, 201, 133)),
-      child: Padding(
-        padding: const EdgeInsets.all(9.0),
-        child: Stack(
-          children: [
-            Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(13),
-                  child: Container(
-                    child: SizedBox(
-                      height: 100,
-                      width: 100,
-                      child: Image.asset(
-                        model.imageUrl!,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) => Image.asset(
-                            "assets/images/logo.png"), // Fallback image incase there is an error while loading images
+          color: const Color.fromARGB(255, 246, 201, 133)),
+      child: InkWell(
+        onTap: () {
+          controller.navigatoQuestions(paper: model, isTryAgain: false);
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(9.0),
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(13),
+                    child: Container(
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: Image.asset(
+                          model.imageUrl!,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => Image.asset(
+                              "assets/images/logo.png"), // Fallback image incase there is an error while loading images
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 18,
-                  height: 15,
-                ),
-                Expanded(
-                  child: Column(children: [
-                    Text(
-                      model.title,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(model.description),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.info_rounded,
-                          color: Color.fromARGB(255, 214, 130, 11),
+                  const SizedBox(
+                    width: 18,
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Column(children: [
+                      Text(
+                        model.title,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
                         ),
-                        Text('Total ${model.questionNumbers} questions')
-                      ],
-                    )
-                  ]),
-                )
-              ],
-            )
-          ],
+                        textAlign: TextAlign.center,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text(model.description),
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.info_rounded,
+                            color: Color.fromARGB(255, 214, 130, 11),
+                          ),
+                          Text('Total ${model.questionNumbers} questions')
+                        ],
+                      )
+                    ]),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

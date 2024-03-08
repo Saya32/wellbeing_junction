@@ -11,7 +11,7 @@ class QuizDetailsScreen extends GetView<QuestionController> {
     return Scaffold(
       body: Stack(
         children: [
-          Background(),
+          const Background(),
           Center(
               child: Obx(() => (Text(
                   controller.currentSelectedQuestion.value?.question ??

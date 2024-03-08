@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
-import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
+import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
+
+import '../../auth/auth_service.dart';
+import '../../screens/self_assessment_quiz.dart';
 
 class QuizPaperController extends GetxController {
   final allPapers = <GeneralQuestionModel>[].obs;
@@ -40,7 +42,7 @@ class QuizPaperController extends GetxController {
         Get.to(const SelfAssessmentScreen(),
             arguments: paper, preventDuplicates: false);
       } else {
-        Get.to(const SelfAssessmentScreen(), arguments: paper);
+        Get.to(() => QuizDetailsScreen());
       }
     }
   }
