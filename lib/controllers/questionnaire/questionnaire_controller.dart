@@ -39,10 +39,11 @@ class QuizPaperController extends GetxController {
     if (authController.isLogedIn()) {
       if (isTryAgain) {
         Get.back();
-        Get.to(const SelfAssessmentScreen(),
+        Get.to(SelfAssessmentScreen(),
             arguments: paper, preventDuplicates: false);
       } else {
-        Get.to(() => QuizDetailsScreen());
+        Get.toNamed(QuizDetailsScreen.routeName,
+            arguments: paper);
       }
     }
   }

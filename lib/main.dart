@@ -5,14 +5,13 @@ import 'package:wellbeing_junction/app_routes.dart';
 import 'package:wellbeing_junction/bindings.dart';
 import 'package:wellbeing_junction/firebase_options.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Initalise the firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions
         .currentPlatform, //https://firebase.google.com/docs/flutter/setup?platform=ios
   );
-  Binding().dependencies();
+  InitialBinding().dependencies();
   runApp(const MyApp());
 }
 

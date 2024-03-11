@@ -4,12 +4,12 @@ import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_contr
 import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
 import 'package:wellbeing_junction/screens/profile_screen.dart';
 
-class Binding implements Bindings {
+class InitialBinding implements Bindings {
   @override
   void dependencies() {
     Get.put(AuthService(), permanent: true);
     Get.put(QuizPaperController());
     Get.put(ProfileScreenController());
-    Get.put(QuestionController());
+    //Get.put(QuestionController());
   }
 }
