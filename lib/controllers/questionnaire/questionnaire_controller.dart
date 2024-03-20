@@ -42,8 +42,7 @@ class QuizPaperController extends GetxController {
         Get.to(SelfAssessmentScreen(),
             arguments: paper, preventDuplicates: false);
       } else {
-        Get.toNamed(QuizDetailsScreen.routeName,
-            arguments: paper);
+        Get.toNamed(QuizDetailsScreen.routeName, arguments: paper);
       }
     }
   }

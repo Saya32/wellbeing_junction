@@ -51,6 +51,7 @@ class QuestionController extends GetxController {
             questionPaper.questions!.isNotEmpty) {
           //Null and not empty are not same
           allQuestions.assignAll(questionPaper.questions!);
+          currentSelectedQuestion.value = questionPaper.questions![0];
           // currentSelectedQuestion.value =
           //     questionPaper.questions![0].question as Questions?;
           if (kDebugMode) {
