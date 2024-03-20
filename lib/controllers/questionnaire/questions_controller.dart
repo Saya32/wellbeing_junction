@@ -10,16 +10,60 @@ class QuestionController extends GetxController {
     final questionPaper = Get.arguments as GeneralQuestionModel?;
     if (questionPaper != null) {
       debugPrint("Title: ${questionPaper.title}");
+      loadQuestionsDetails(questionPaper);
     } else {
       print("Something is wrong");
     }
     super.onReady();
   }
 
-  // late GeneralQuestionModel generalQuestionModel;
-  // final allQuestions = <Questions>[];
-  // Rxn<Questions> currentSelectedQuestion =
-  //     Rxn<Questions>(); // making the current questions observable
+  late GeneralQuestionModel generalQuestionModel;
+  final allQuestions = <Questions>[];
+  Rxn<Questions> currentSelectedQuestion =
+      Rxn<Questions>(); // making the current questions observable
+
+  Future<void> loadQuestionsDetails(GeneralQuestionModel questionPaper) async {
+    generalQuestionModel = questionPaper;
+    try {
+      final QuerySnapshot<Map<String, dynamic>> questionsList =
+          await questionnaireCollection
+              .doc(questionPaper.id)
+              .collection("questions")
+              .get();
+      final questions = questionsList.docs
+          .map((snapshot) => Questions.fromSnapshot(snapshot))
+          .toList();
+
+      questionPaper.questions =
+          questions; //saved the questions retrieved from firebase to the question variable
+      for (Questions question in questionPaper.questions!) {
+        final QuerySnapshot<Map<String, dynamic>> optionList =
+            await questionnaireCollection
+                .doc(questionnaireCollection.id)
+                .collection('questions')
+                .doc(question.id)
+                .collection('options')
+                .get();
+        final options =
+            optionList.docs.map((text) => Options.fromSnapshot(text)).toList();
+        question.options = options;
+        if (questionPaper.questions != null &&
+            questionPaper.questions!.isNotEmpty) {
+          //Null and not empty are not same
+          allQuestions.assignAll(questionPaper.questions!);
+          // currentSelectedQuestion.value =
+          //     questionPaper.questions![0].question as Questions?;
+          if (kDebugMode) {
+            print(questionPaper.questions![0].question);
+          }
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+  }
 
   // Future<void> loadQuestionsDetails(GeneralQuestionModel questionPaper) async {
   //   generalQuestionModel = questionPaper;
