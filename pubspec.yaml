@@ -43,6 +43,8 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.0.0
+  shimmer: ^3.0.0 # shimmer might not be needed
+  easy_separator: ^1.0.1 #might not needed
 
 dev_dependencies:
   flutter_test:

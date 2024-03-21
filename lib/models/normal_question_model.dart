@@ -74,9 +74,8 @@ class Questions {
         id = json['id'],
         question = json['question'],
         category = json['category'],
-        options = (json['options'] as List)
-            .map((e) => Options.fromJson(e as Map<String, dynamic>))
-            .toList();
+        options =
+            (json['options'] as List).map((e) => Options.fromJson(e)).toList();
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -89,17 +88,17 @@ class Questions {
 }
 
 class Options {
-  final String text;
+  final String? text;
   final int? points;
 
-  Options({required this.text, required this.points});
+  Options({this.text, this.points});
 
   Options.fromJson(Map<String, dynamic> json)
-      : text = json['text'] as String,
-        points = int.tryParse(json['points'].toString());
+      : text = json['text'] as String?,
+        points = json['points'] as int?;
 
   Options.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
-      : text = snapshot['text'] as String,
+      : text = snapshot['text'] as String?,
         points = snapshot['points'] as int?;
 
   Map<String, dynamic> toJson() => {'text': text, 'points': points};

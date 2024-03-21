@@ -39,7 +39,7 @@ class QuestionController extends GetxController {
       for (Questions question in questionPaper.questions!) {
         final QuerySnapshot<Map<String, dynamic>> optionList =
             await questionnaireCollection
-                .doc(questionnaireCollection.id)
+                .doc(questionPaper.id)
                 .collection('questions')
                 .doc(question.id)
                 .collection('options')
@@ -52,10 +52,9 @@ class QuestionController extends GetxController {
           //Null and not empty are not same
           allQuestions.assignAll(questionPaper.questions!);
           currentSelectedQuestion.value = questionPaper.questions![0];
-          // currentSelectedQuestion.value =
-          //     questionPaper.questions![0].question as Questions?;
+
           if (kDebugMode) {
-            print(questionPaper.questions![0].question);
+            print(questionPaper.questions![0].options);
           }
         }
       }
@@ -66,64 +65,8 @@ class QuestionController extends GetxController {
     }
   }
 
-  // Future<void> loadQuestionsDetails(GeneralQuestionModel questionPaper) async {
-  //   generalQuestionModel = questionPaper;
-  //   try {
-  //     final QuerySnapshot<Map<String, dynamic>>
-  //         questionsList = //retriving from firebase so have to cast around QuerySnapshot
-  //         await questionnaireCollection
-  //             .doc(questionPaper.id)
-  //             .collection("questions")
-  //             .get();
-  //     final questions = questionsList.docs
-  //         .map((snapshot) => Questions.fromSnapshot(snapshot))
-  //         .toList();
-
-  //     questionPaper.questions =
-  //         questions; //saved the questions retrieved from firebase to the question variable
-  //     for (Questions question in questionPaper.questions!) {
-  //       final QuerySnapshot<Map<String, dynamic>> optionList =
-  //           await questionnaireCollection
-  //               .doc(questionnaireCollection.id)
-  //               .collection('questions')
-  //               .doc(question.id)
-  //               .collection('options')
-  //               .get();
-  //       final options =
-  //           optionList.docs.map((text) => Options.fromSnapshot(text)).toList();
-  //       question.options = options;
-  //       if (questionPaper.questions != null &&
-  //           questionPaper.questions!.isNotEmpty) {
-  //         //Null and not empty are not same
-  //         allQuestions.assignAll(questionPaper.questions!);
-  //         currentSelectedQuestion.value =
-  //             questionPaper.questions![0].question as Questions?;
-  //         //print(questionPaper.questions![0].question);
-  //       }
-  //     }
-  //   } catch (e) {
-  //     if (kDebugMode) {
-  //       //debugging for developer mode as we cannot print statement in production mode
-  //       print(e.toString());
-  //     }
-  //   }
-  // }
+  void selectedAnswerOptions(String? answer) {
+    currentSelectedQuestion.value!.selectedOption = answer;
+    update();
+  }
 }
-
-// class QuestionController extends GetxController {
-//   @override
-//   void onReady() {
-//     final arguments = Get.arguments;
-//     if (arguments is GeneralQuestionModel) {
-//       final questionPaper = arguments;
-//       print(questionPaper.title);
-//       // loadData(questionPaper);
-//     } else {
-//       // Handle the case where arguments is null or not a GeneralQuestionModel
-//       print("Error: Expected GeneralQuestionModel as argument.");
-//     }
-//     super.onReady();
-//   }
-
-//   // void loadData(GeneralQuestionModel questionPaper) {}
-// }
