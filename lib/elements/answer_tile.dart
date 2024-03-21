@@ -6,29 +6,43 @@ class AnswerTile extends StatelessWidget {
   final String answer;
   final bool selected;
   final VoidCallback onTap;
-  const AnswerTile(
-      {super.key,
-      required this.answer,
-      this.selected = false,
-      required this.onTap});
+
+  const AnswerTile({
+    Key? key,
+    required this.answer,
+    this.selected = false,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       onTap: onTap,
-      child: Ink(
+      child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: selected
-                ? const Color.fromARGB(255, 216, 108, 13)
-                : const Color.fromARGB(255, 255, 255, 255)),
-        child: Text(
-          answer,
-          style: TextStyle(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: Colors.white, // White border color
+            width: 5.0, // Border width
+          ),
+          color: selected
+              ? Color.fromARGB(255, 152, 181, 225)
+              : const Color.fromARGB(255, 255, 255, 255),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0), // Padding inside the border box
+          child: Text(
+            answer,
+            style: TextStyle(
               color: selected
-                  ? const Color.fromARGB(255, 216, 108, 13)
-                  : const Color.fromARGB(255, 255, 255, 255)),
+                  ? const Color.fromARGB(255, 37, 13, 216)
+                  : Color.fromARGB(255, 0, 0, 0), // Black text color
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

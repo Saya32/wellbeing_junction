@@ -6,6 +6,14 @@ import 'package:wellbeing_junction/models/normal_question_model.dart';
 
 class QuestionController extends GetxController {
   @override
+  void onInit() {
+    ever(currentSelectedQuestion, (_) {
+      update();
+    });
+    super.onInit();
+  }
+
+  @override
   void onReady() {
     final questionPaper = Get.arguments as GeneralQuestionModel?;
     if (questionPaper != null) {
@@ -54,7 +62,7 @@ class QuestionController extends GetxController {
           currentSelectedQuestion.value = questionPaper.questions![0];
 
           if (kDebugMode) {
-            print(questionPaper.questions![0].options);
+            print(questionPaper.questions![0].options.length);
           }
         }
       }
@@ -67,6 +75,6 @@ class QuestionController extends GetxController {
 
   void selectedAnswerOptions(String? answer) {
     currentSelectedQuestion.value!.selectedOption = answer;
-    update();
+    update(['options_lists']);
   }
 }
