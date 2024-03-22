@@ -8,7 +8,7 @@ class QuestionController extends GetxController {
   @override
   void onInit() {
     ever(currentSelectedQuestion, (_) {
-      update();
+      update(['options_lists']);
     });
     super.onInit();
   }
@@ -29,6 +29,10 @@ class QuestionController extends GetxController {
   final allQuestions = <Questions>[];
   Rxn<Questions> currentSelectedQuestion =
       Rxn<Questions>(); // making the current questions observable
+  final questionNumber = 0.obs;
+  bool get firstQuestionNumber => questionNumber.value > 0;
+  bool get lastQuestionNumber =>
+      questionNumber.value >= allQuestions.length - 1;
 
   Future<void> loadQuestionsDetails(GeneralQuestionModel questionPaper) async {
     generalQuestionModel = questionPaper;
@@ -76,5 +80,19 @@ class QuestionController extends GetxController {
   void selectedAnswerOptions(String? answer) {
     currentSelectedQuestion.value!.selectedOption = answer;
     update(['options_lists']);
+  }
+
+  void nextQuestion() {
+    if (questionNumber.value >= allQuestions.length - 1) return; //We just return because we don't have anymore questions
+    questionNumber.value++;
+    currentSelectedQuestion.value = allQuestions[questionNumber.value];
+  }
+
+  void prevQuestion() {
+    if (questionNumber.value <= 0) {
+      return;
+    }
+    questionNumber.value--;
+    currentSelectedQuestion.value = allQuestions[questionNumber.value];
   }
 }

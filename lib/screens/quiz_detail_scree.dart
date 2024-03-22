@@ -75,10 +75,28 @@ class QuizDetailsScreen extends GetView<QuestionController> {
                         itemCount: options.length,
                       );
                     } else {
-                      return const Text("No options available");
+                      return const Text(
+                          "Please wait while the options are loading");
                     }
                   },
                 ),
+                ColoredBox(
+                    color: Color.fromRGBO(195, 222, 22, 0.004),
+                    child: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Row(
+                          children: [
+                            Visibility(
+                                visible: controller.firstQuestionNumber,
+                                child: SizedBox(
+                                  width: 55,
+                                  height: 55,
+                                  child: ElevatedButton(
+                                      onPressed: () {},
+                                      child: Icon(Icons.arrow_back)),
+                                ))
+                          ],
+                        )))
               ],
             ),
           ),
