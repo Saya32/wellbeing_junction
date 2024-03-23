@@ -29,9 +29,12 @@ class AppScreenRoutes {
           name: QuizDetailsScreen.routeName,
           page: () => const QuizDetailsScreen(),
           binding: BindingsBuilder(() {
-            Get.put(QuestionController());
+            Get.put<QuestionController>(QuestionController());
           }),
         ),
-        GetPage(name: ResultScreen.routeName, page: () => const ResultScreen(),),
+        GetPage(
+          name: ResultScreen.routeName,
+          page: () => const ResultScreen(),
+        ),
       ];
 }

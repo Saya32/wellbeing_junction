@@ -1,8 +1,8 @@
 //https://docs.flutter.dev/cookbook/design/drawer
 
 import 'package:flutter/material.dart';
-import 'package:wellbeing_junction/screens/habit_builder_screen.dart';
-import 'package:wellbeing_junction/screens/mood_tracker_screen.dart';
+import 'package:wellbeing_junction/screens/advice.dart';
+import 'package:wellbeing_junction/screens/insight.dart';
 import 'package:wellbeing_junction/screens/profile.dart';
 import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 

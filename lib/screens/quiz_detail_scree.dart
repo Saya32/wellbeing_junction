@@ -13,6 +13,22 @@ class QuizDetailsScreen extends GetView<QuestionController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 236, 119, 65),
+                Color.fromARGB(255, 209, 80, 80),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        title: Obx(() => Text(
+            'Question ${(controller.questionNumber.value + 1).toString().padLeft(2)}')),
+      ),
       body: Obx(
         () => Stack(
           children: [
@@ -61,8 +77,8 @@ class QuizDetailsScreen extends GetView<QuestionController> {
                             return AnswerTile(
                               answer: '${answer.points}. ${answer.text}',
                               onTap: () {
-                                controller.selectedAnswerOptions(
-                                    answer.points.toString());
+                                controller
+                                    .selectedOption(answer.points.toString());
                               },
                               selected: answer.points ==
                                   int.tryParse(controller
@@ -82,29 +98,27 @@ class QuizDetailsScreen extends GetView<QuestionController> {
                       }
                     },
                   ),
-                  ColoredBox(
-                    color: const Color.fromRGBO(234, 176, 19, 0.004),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          if (!controller.firstQuestionNumber)
-                            ElevatedButton(
-                              style: raisedButtonStyle,
-                              onPressed: controller.previousQuestion,
-                              child: const Icon(Icons.arrow_back),
-                            ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        if (!controller.firstQuestionNumber)
                           ElevatedButton(
                             style: raisedButtonStyle,
-                            onPressed: controller.lastQuestionNumber
-                                ? () => Get.toNamed('/resultScreen')
-                                : controller.nextQuestion,
-                            child: Text(controller.lastQuestionNumber
-                                ? 'Complete'
-                                : 'Next'),
+                            onPressed: controller.previousQuestion,
+                            child: const Text('Previous'),
                           ),
-                        ],
-                      ),
+                        const Spacer(),
+                        ElevatedButton(
+                          style: raisedButtonStyle,
+                          onPressed: controller.lastQuestionNumber
+                              ? () => Get.toNamed('/resultScreen')
+                              : controller.nextQuestion,
+                          child: Text(controller.lastQuestionNumber
+                              ? 'Complete'
+                              : 'Next'),
+                        ),
+                      ],
                     ),
                   ),
                 ],

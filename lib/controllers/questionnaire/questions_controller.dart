@@ -77,7 +77,7 @@ class QuestionController extends GetxController {
     }
   }
 
-  void selectedAnswerOptions(String? answer) {
+  void selectedOption(String? answer) {
     currentSelectedQuestion.value!.selectedOption = answer;
     update(['options_lists']);
   }
@@ -94,5 +94,19 @@ class QuestionController extends GetxController {
       questionNumber.value--;
       currentSelectedQuestion.value = allQuestions[questionNumber.value];
     }
+  }
+
+// might not need tis code
+  String get completedTest {
+    final chosed = allQuestions
+        .where((element) => element.selectedOption != null)
+        .toList()
+        .length;
+    return '$chosed out of ${allQuestions.length} answered';
+  }
+
+// might not need tis code
+  void complete() {
+    Get.offAndToNamed("/");
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum AnswerStatus { answered, notanswered }
+enum AnswerStatus { answered, notanswered } //might not need this
 
 class AnswerTile extends StatelessWidget {
   final String answer;
