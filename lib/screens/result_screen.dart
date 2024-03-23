@@ -11,6 +11,7 @@ class ResultScreen extends GetView<QuestionController> {
   @override
   Widget build(BuildContext context) {
     int totalPoints = controller.normalCalculatePoint();
+    String quizType = controller.generalQuestionModel.id;
 
     if (controller.generalQuestionModel.id == 'dass21') {
       // If the quiz is DASS21, show the category points
@@ -24,21 +25,21 @@ class ResultScreen extends GetView<QuestionController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Your Score:',
+                  const Text('Your Score:',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text('Total Points: $totalPoints',
-                      style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 20),
+                      style: const TextStyle(fontSize: 18)),
+                  const SizedBox(height: 20),
                   Text('Depression: ${categoryPoints['d']}',
-                      style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 10),
+                      style: const TextStyle(fontSize: 18)),
+                  const SizedBox(height: 10),
                   Text('Anxiety: ${categoryPoints['a']}',
-                      style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 10),
+                      style: const TextStyle(fontSize: 18)),
+                  const SizedBox(height: 10),
                   Text('Stress: ${categoryPoints['s']}',
-                      style: TextStyle(fontSize: 18)),
+                      style: const TextStyle(fontSize: 18)),
                 ],
               ),
             ),
@@ -55,12 +56,16 @@ class ResultScreen extends GetView<QuestionController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Your Score:',
+                  const Text('Your Score:',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text('Total Points: $totalPoints',
-                      style: TextStyle(fontSize: 18)),
+                      style: const TextStyle(fontSize: 18)),
+                  const SizedBox(height: 20),
+                  Text(
+                      'Score Level: ${controller.getScoreLevel(totalPoints, quizType)}',
+                      style: const TextStyle(fontSize: 18)),
                 ],
               ),
             ),
