@@ -29,8 +29,8 @@ class QuestionController extends GetxController {
   final allQuestions = <Questions>[];
   Rxn<Questions> currentSelectedQuestion =
       Rxn<Questions>(); // making the current questions observable
-  final questionNumber = 0.obs;
-  bool get firstQuestionNumber => questionNumber.value > 0;
+  final RxInt questionNumber = 0.obs;
+  bool get firstQuestionNumber => questionNumber.value == 0;
   bool get lastQuestionNumber =>
       questionNumber.value >= allQuestions.length - 1;
 
@@ -83,16 +83,16 @@ class QuestionController extends GetxController {
   }
 
   void nextQuestion() {
-    if (questionNumber.value >= allQuestions.length - 1) return; //We just return because we don't have anymore questions
-    questionNumber.value++;
-    currentSelectedQuestion.value = allQuestions[questionNumber.value];
+    if (questionNumber.value < allQuestions.length - 1) {
+      questionNumber.value++;
+      currentSelectedQuestion.value = allQuestions[questionNumber.value];
+    }
   }
 
-  void prevQuestion() {
-    if (questionNumber.value <= 0) {
-      return;
+  void previousQuestion() {
+    if (questionNumber.value > 0) {
+      questionNumber.value--;
+      currentSelectedQuestion.value = allQuestions[questionNumber.value];
     }
-    questionNumber.value--;
-    currentSelectedQuestion.value = allQuestions[questionNumber.value];
   }
 }

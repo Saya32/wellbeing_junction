@@ -7,6 +7,8 @@ import 'package:wellbeing_junction/screens/app_introduction_screen.dart';
 import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
 import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 
+import 'screens/result_screen.dart';
+
 class AppScreenRoutes {
   static List<GetPage> screens() => [
         GetPage(name: "/", page: () => const Authentication()),
@@ -30,5 +32,6 @@ class AppScreenRoutes {
             Get.put(QuestionController());
           }),
         ),
+        GetPage(name: ResultScreen.routeName, page: () => const ResultScreen(),),
       ];
 }
