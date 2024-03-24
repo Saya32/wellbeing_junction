@@ -27,9 +27,14 @@ class AuthService {
   }
 
   Future<void> saveUser(GoogleSignInAccount account) async {
-    userCollection
-        .doc(account.email)
-        .set({"email": account.email, "first name": account.displayName});
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      Map<String, dynamic> userData = {
+        "email": account.email,
+        "first_name": account.displayName,
+      };
+      userCollection.doc(currentUser.uid).set(userData);
+    }
   }
 
   bool isLogedIn() {

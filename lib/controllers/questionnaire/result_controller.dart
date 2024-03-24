@@ -1,8 +1,11 @@
 // Extend the questions controller to use the provided functions
 //https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wellbeing_junction/auth/auth_service.dart';
@@ -160,50 +163,57 @@ extension ResultControllerExtension on QuestionController {
     var batch = db.batch();
     User? user = Get.find<AuthService>().getUser();
     if (user == null) return;
-
-    //Get user data so it's not overwritten
-    DocumentSnapshot userDataSnapshot =
-        await userCollection.doc(user.uid).get();
-    Map<String, dynamic> userData =
-        (userDataSnapshot.data() as Map<String, dynamic>?) ?? {};
+    String formattedTodayDate = DateFormat('yyyyMMdd').format(DateTime.now());
 
     int normalPoints = normalCalculatePoint();
     Map<String, int>? dass21Points;
     String scoreLevel = getScoreLevel(normalPoints, generalQuestionModel.id);
     Map<String, String> dass21ScoreLevels;
 
+    // Reference to user's recent test document
+    DocumentReference recentTestDocReference = userCollection
+        .doc(user.uid)
+        .collection('myrecent_tests')
+        .doc(generalQuestionModel.id);
+
+    // Reference to the specific day's document within quiz_history
+    DocumentReference dayDocReference = recentTestDocReference
+        .collection('quiz_history')
+        .doc(formattedTodayDate);
+
+    // Check if there's already a record for today
+    DocumentSnapshot dayDocSnapshot = await dayDocReference.get();
+
+    Map<String, dynamic> quizResultData = {
+      "points": normalPoints,
+      "question_paper_id": generalQuestionModel.id,
+      "Score_level": scoreLevel,
+      "date": formattedTodayDate // Add date to quiz result data
+    };
+
     // Check if quiz is DASS-21 or not
     if (generalQuestionModel.id == 'dass21') {
       dass21Points = calculatePointsPerCategoryForDass21();
       dass21ScoreLevels = getDass21ScoreLevels(dass21Points);
-
-      batch.set(
-          userCollection
-              .doc(user.email)
-              .collection('myrecent_tests')
-              .doc(generalQuestionModel.id),
-          {
-            "points": normalPoints,
-            "dss21_points": dass21Points,
-            "question_paper_id": generalQuestionModel.id,
-            "Score_level": scoreLevel,
-            "score_level_dss21": dass21ScoreLevels
-          });
-    } else {
-      batch.set(
-          userCollection
-              .doc(user.uid)
-              .collection('myrecent_tests')
-              .doc(generalQuestionModel.id),
-          {
-            "points": normalPoints,
-            "question_paper_id": generalQuestionModel.id,
-            "Score_level": scoreLevel,
-          });
+      quizResultData.addAll({
+        "dss21_points": dass21Points,
+        "score_level_dss21": dass21ScoreLevels,
+      });
     }
 
+    if (!dayDocSnapshot.exists) {
+      // If no record exists for today in quiz_history, create a new document
+      batch.set(dayDocReference, quizResultData);
+    } else {
+      // If a record exists for today, update it with the latest quiz result
+      batch.update(dayDocReference, quizResultData);
+    }
+
+    // Update the recent test document with the latest result data
+    batch.set(recentTestDocReference, quizResultData);
+
     await batch.commit();
-    await userCollection.doc(user.uid).set(userData);
+
     if (navigateTo == 'dashboard') {
       navigateToDashboard();
     } else if (navigateTo == 'advice') {

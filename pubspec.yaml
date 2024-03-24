@@ -45,6 +45,7 @@ dependencies:
   url_launcher: ^6.0.0
   shimmer: ^3.0.0 # shimmer might not be needed
   easy_separator: ^1.0.1 #might not needed
+  intl: ^0.19.0 # for date format
 
 dev_dependencies:
   flutter_test:
