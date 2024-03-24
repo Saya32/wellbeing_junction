@@ -14,9 +14,11 @@ class ResultScreen extends GetView<QuestionController> {
     String quizType = controller.generalQuestionModel.id;
 
     if (controller.generalQuestionModel.id == 'dass21') {
-      // If the quiz is DASS21, show the category points
       Map<String, int> categoryPoints =
           controller.calculatePointsPerCategoryForDass21();
+      Map<String, String> scoreLevels =
+          controller.getDass21ScoreLevels(categoryPoints);
+
       return Scaffold(
         body: Stack(
           children: [
@@ -25,7 +27,7 @@ class ResultScreen extends GetView<QuestionController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Your Score:',
+                  const Text('Your Score',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 20),
@@ -34,11 +36,17 @@ class ResultScreen extends GetView<QuestionController> {
                   const SizedBox(height: 20),
                   Text('Depression: ${categoryPoints['d']}',
                       style: const TextStyle(fontSize: 18)),
+                  Text('Depression Level: ${scoreLevels['Depression']}',
+                      style: const TextStyle(fontSize: 18)),
                   const SizedBox(height: 10),
                   Text('Anxiety: ${categoryPoints['a']}',
                       style: const TextStyle(fontSize: 18)),
+                  Text('Anxiety Level: ${scoreLevels['Anxiety']}',
+                      style: const TextStyle(fontSize: 18)),
                   const SizedBox(height: 10),
                   Text('Stress: ${categoryPoints['s']}',
+                      style: const TextStyle(fontSize: 18)),
+                  Text('Stress Level: ${scoreLevels['Stress']}',
                       style: const TextStyle(fontSize: 18)),
                 ],
               ),
@@ -56,7 +64,7 @@ class ResultScreen extends GetView<QuestionController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Your Score:',
+                  const Text('Your Score',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 20),
