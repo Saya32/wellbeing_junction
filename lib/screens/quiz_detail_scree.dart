@@ -104,13 +104,13 @@ class QuizDetailsScreen extends GetView<QuestionController> {
                       children: [
                         if (!controller.firstQuestionNumber)
                           ElevatedButton(
-                            style: raisedButtonStyle,
+                            style: blackButtonStyle,
                             onPressed: controller.previousQuestion,
                             child: const Text('Previous'),
                           ),
                         const Spacer(),
                         ElevatedButton(
-                          style: raisedButtonStyle,
+                          style: blackButtonStyle,
                           onPressed: controller.lastQuestionNumber
                               ? () => Get.toNamed('/resultScreen')
                               : controller.nextQuestion,

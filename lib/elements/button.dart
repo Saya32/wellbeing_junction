@@ -36,3 +36,14 @@ final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
     borderRadius: BorderRadius.all(Radius.circular(2)),
   ),
 );
+
+//https:docs.flutter.dev/release/breaking-changes/buttons
+final ButtonStyle blackButtonStyle = ElevatedButton.styleFrom(
+  foregroundColor: const Color.fromARGB(221, 255, 255, 255),
+  backgroundColor: Color.fromARGB(255, 0, 0, 0),
+  minimumSize: const Size(88, 36),
+  padding: const EdgeInsets.symmetric(horizontal: 16),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(12)),
+  ),
+);

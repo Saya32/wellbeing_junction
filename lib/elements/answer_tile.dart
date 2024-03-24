@@ -27,7 +27,7 @@ class AnswerTile extends StatelessWidget {
             width: 5.0, // Border width
           ),
           color: selected
-              ? Color.fromARGB(255, 152, 181, 225)
+              ? const Color.fromARGB(255, 240, 228, 186)
               : const Color.fromARGB(255, 255, 255, 255),
         ),
         child: Padding(

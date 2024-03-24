@@ -1,6 +1,7 @@
 // Extend the questions controller to use the provided functions
 //https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 
+import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 

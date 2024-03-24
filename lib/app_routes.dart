@@ -4,6 +4,7 @@ import 'package:wellbeing_junction/auth/welcome_screen.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
 import 'package:wellbeing_junction/screens/app_introduction_screen.dart';
+import 'package:wellbeing_junction/screens/insight.dart';
 import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
 import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 
@@ -25,6 +26,7 @@ class AppScreenRoutes {
             })),
         GetPage(page: () => const Authentication(), name: "/Authentication"),
         GetPage(page: () => const WelcomePage(), name: "/WelcomePage"),
+        GetPage(page: () => const UserDataScreen(), name: "/insight"),
         GetPage(
           name: QuizDetailsScreen.routeName,
           page: () => const QuizDetailsScreen(),
