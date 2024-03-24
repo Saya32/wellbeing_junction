@@ -14,25 +14,3 @@ DocumentReference questionReference({
         .doc(questionnaireId)
         .collection("questions")
         .doc(questionId);
-
-DocumentReference recentQuizesData(
-        {required String userId, required String questionnaireId}) =>
-    userCollection
-        .doc(userId)
-        .collection('myrecent_quizes')
-        .doc(questionnaireId);
-
-CollectionReference<Map<String, dynamic>> recentQuizes(
-        {required String userId}) =>
-    userCollection.doc(userId).collection('myrecent_quizes');
-
-CollectionReference<Map<String, dynamic>> getleaderBoard(
-        {required String questionnaireId}) =>
-    userDataCollection.doc(questionnaireId).collection('scores');
-
-//May need to remove the below code when refactoring
-class RetrieveFirebaseQuiz {
-  Stream<QuerySnapshot<Map<String, dynamic>>> getQuizData() {
-    return questionnaireCollection.snapshots();
-  }
-}

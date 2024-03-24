@@ -5,6 +5,7 @@ import 'package:wellbeing_junction/controllers/questionnaire/result_controller.d
 import 'package:wellbeing_junction/elements/background.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/warning.dart';
+import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 
 class ResultScreen extends GetView<QuestionController> {
   const ResultScreen({super.key});
@@ -39,13 +40,17 @@ class ResultScreen extends GetView<QuestionController> {
                     children: [
                       ElevatedButton(
                         style: blackButtonStyle,
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.saveQuizResult(navigateTo: 'dashboard');
+                        },
                         child: const Text('Get an Insight'),
                       ),
                       const Spacer(),
                       ElevatedButton(
                         style: blackButtonStyle,
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.saveQuizResult(navigateTo: 'advice');
+                        },
                         child: const Text('Get a Tips and Advice'),
                       ),
                     ],

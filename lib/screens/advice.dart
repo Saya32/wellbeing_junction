@@ -3,6 +3,7 @@ import 'package:wellbeing_junction/elements/background.dart';
 
 class AdviceScreen extends StatefulWidget {
   const AdviceScreen({super.key});
+  static const String routeName = "/advice";
 
   @override
   State<AdviceScreen> createState() => _AdviceScreenState();

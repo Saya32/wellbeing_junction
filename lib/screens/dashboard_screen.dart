@@ -8,6 +8,7 @@ import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+  static const String routeName = "/dashboard";
 
   @override
   State<Dashboard> createState() => _DashboardState();

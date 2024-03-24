@@ -1,8 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
+import 'package:wellbeing_junction/screens/advice.dart';
+import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 
 class QuestionController extends GetxController {
   @override
@@ -96,17 +100,11 @@ class QuestionController extends GetxController {
     }
   }
 
-// might not need tis code
-  String get completedTest {
-    final chosed = allQuestions
-        .where((element) => element.selectedOption != null)
-        .toList()
-        .length;
-    return '$chosed out of ${allQuestions.length} answered';
+  void navigateToDashboard() {
+    Get.offNamed(Dashboard.routeName);
   }
 
-// might not need tis code
-  void complete() {
-    Get.offAndToNamed("/");
+  void navigateToAdviceScreen() {
+    Get.offAllNamed(AdviceScreen.routeName);
   }
 }

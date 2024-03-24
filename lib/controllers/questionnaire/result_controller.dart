@@ -1,8 +1,12 @@
 // Extend the questions controller to use the provided functions
 //https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
+import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 
 extension ResultControllerExtension on QuestionController {
@@ -149,5 +153,52 @@ extension ResultControllerExtension on QuestionController {
       'Anxiety': anxietyLevel,
       'Stress': stressLevel,
     };
+  }
+
+  Future<void> saveQuizResult({required String navigateTo}) async {
+    var batch = db.batch();
+    User? user = Get.find<AuthService>().getUser();
+    if (user == null) return;
+    int normalPoints = normalCalculatePoint();
+    Map<String, int>? dass21Points;
+    String scoreLevel = getScoreLevel(normalPoints, generalQuestionModel.id);
+    Map<String, String> dass21ScoreLevels;
+
+    // Check if quiz is DASS-21 or not
+    if (generalQuestionModel.id == 'dass21') {
+      dass21Points = calculatePointsPerCategoryForDass21();
+      dass21ScoreLevels = getDass21ScoreLevels(dass21Points);
+
+      batch.set(
+          userCollection
+              .doc(user.uid)
+              .collection('myrecent_tests')
+              .doc(generalQuestionModel.id),
+          {
+            "points": normalPoints,
+            "dss21_points": dass21Points,
+            "question_paper_id": generalQuestionModel.id,
+            "Score_level": scoreLevel,
+            "score_level_dss21": dass21ScoreLevels
+          });
+    } else {
+      batch.set(
+          userCollection
+              .doc(user.uid)
+              .collection('myrecent_tests')
+              .doc(generalQuestionModel.id),
+          {
+            "points": normalPoints,
+            "question_paper_id": generalQuestionModel.id,
+            "Score_level": scoreLevel,
+          });
+    }
+
+    await batch.commit();
+    if (navigateTo == 'dashboard') {
+      navigateToDashboard();
+    } else if (navigateTo == 'advice') {
+      navigateToAdviceScreen(); 
+    }
   }
 }
