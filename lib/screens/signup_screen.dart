@@ -54,8 +54,9 @@ class _SignUpPageState extends State<SignUpPage> {
   Future<void> userDetails(String firstName, String email) async {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
+      String displayName = user.displayName ?? firstName;
       await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
-        'first name': firstName,
+        'first name': displayName,
         'email': email,
       });
     }

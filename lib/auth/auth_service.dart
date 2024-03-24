@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 
 // https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google
 //https://firebase.google.com/docs/auth/flutter/federated-auth
@@ -9,7 +10,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthService {
   final user = Rxn<User>();
 
-  signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // load new page
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     //request to get authentication details
@@ -21,9 +22,14 @@ class AuthService {
       accessToken: googleAuthenctication.accessToken,
       idToken: googleAuthenctication.idToken,
     );
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    await saveUser(googleUser);
+  }
 
-    // Sign in into the app
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+  Future<void> saveUser(GoogleSignInAccount account) async {
+    userCollection
+        .doc(account.email)
+        .set({"email": account.email, "first name": account.displayName});
   }
 
   bool isLogedIn() {

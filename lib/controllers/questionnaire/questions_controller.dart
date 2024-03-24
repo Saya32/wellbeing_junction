@@ -101,10 +101,10 @@ class QuestionController extends GetxController {
   }
 
   void navigateToDashboard() {
-    Get.offNamed(Dashboard.routeName);
+    Get.offNamedUntil(Dashboard.routeName, (route) => false);
   }
 
   void navigateToAdviceScreen() {
-    Get.offAllNamed(AdviceScreen.routeName);
+    Get.offNamedUntil(AdviceScreen.routeName, (route) => false);
   }
 }

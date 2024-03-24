@@ -1,6 +1,7 @@
 // Extend the questions controller to use the provided functions
 //https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -159,6 +160,13 @@ extension ResultControllerExtension on QuestionController {
     var batch = db.batch();
     User? user = Get.find<AuthService>().getUser();
     if (user == null) return;
+
+    //Get user data so it's not overwritten
+    DocumentSnapshot userDataSnapshot =
+        await userCollection.doc(user.uid).get();
+    Map<String, dynamic> userData =
+        (userDataSnapshot.data() as Map<String, dynamic>?) ?? {};
+
     int normalPoints = normalCalculatePoint();
     Map<String, int>? dass21Points;
     String scoreLevel = getScoreLevel(normalPoints, generalQuestionModel.id);
@@ -171,7 +179,7 @@ extension ResultControllerExtension on QuestionController {
 
       batch.set(
           userCollection
-              .doc(user.uid)
+              .doc(user.email)
               .collection('myrecent_tests')
               .doc(generalQuestionModel.id),
           {
@@ -195,10 +203,11 @@ extension ResultControllerExtension on QuestionController {
     }
 
     await batch.commit();
+    await userCollection.doc(user.uid).set(userData);
     if (navigateTo == 'dashboard') {
       navigateToDashboard();
     } else if (navigateTo == 'advice') {
-      navigateToAdviceScreen(); 
+      navigateToAdviceScreen();
     }
   }
 }

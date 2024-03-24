@@ -32,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void showMessage(String message) {
-    //display error to users
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
