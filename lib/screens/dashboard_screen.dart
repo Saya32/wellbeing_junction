@@ -1,6 +1,7 @@
 //https://docs.flutter.dev/cookbook/design/drawer
 
 import 'package:flutter/material.dart';
+import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/advice.dart';
 import 'package:wellbeing_junction/screens/insight.dart';
 import 'package:wellbeing_junction/screens/profile.dart';

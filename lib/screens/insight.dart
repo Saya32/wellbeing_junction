@@ -16,7 +16,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
   final user = FirebaseAuth.instance.currentUser!;
   // document IDs
   List<String> recentQuizdocIDs = [];
-  // List<String> historyQuizdocIDs = [];
+  List<String> historyQuizdocIDs = [];
 
   //get docIDs
   Future getDocIDRecentQuiz() async {
@@ -30,16 +30,22 @@ class _UserDataScreenState extends State<UserDataScreen> {
             }));
   }
 
-  // Future getDocIDHistoryQuiz() async {
-  //   await userCollection
-  //       .doc(user.uid)
-  //       .collection('myrecent_tests').doc()
-  //       .get()
-  //       .then((value) => value.docs.forEach((element) {
-  //             print(element.reference);
-  //             recentQuizdocIDs.add(element.reference.id);
-  //           }));
-  // }
+  Future getDocIDHistoryQuiz() async {
+    await userCollection
+        .doc(user.uid)
+        .collection('myrecent_tests')
+        .get()
+        .then((snapshot) {
+      for (var doc in snapshot.docs) {
+        doc.reference.collection('quiz_history').get().then((historySnapshot) {
+          for (var historyDoc in historySnapshot.docs) {
+            print(historyDoc.reference);
+            historyQuizdocIDs.add(historyDoc.reference.id);
+          }
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +76,31 @@ class _UserDataScreenState extends State<UserDataScreen> {
                             ),
                           );
                         });
-                  }))
+                  })),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('History Quiz Completed',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          ),
+          Expanded(
+              child: FutureBuilder(
+                  future: getDocIDHistoryQuiz(),
+                  builder: (context, snapshot) {
+                    return ListView.builder(
+                        itemCount: historyQuizdocIDs.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              title: DisplayHistoryQuizData(
+                                documentId: historyQuizdocIDs[index],
+                                //quizId:'',
+                              ),
+                              tileColor: Colors.deepOrange[200],
+                            ),
+                          );
+                        });
+                  })),
         ],
       )),
     );
