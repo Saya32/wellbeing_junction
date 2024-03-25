@@ -19,3 +19,14 @@ DocumentReference questionReference({
 CollectionReference<Map<String, dynamic>> recentTests(
         {required String userUId}) =>
     userCollection.doc(userUId).collection('myrecent_tests');
+
+ Future<DocumentReference<Map<String, dynamic>>> getQuizHistory(
+    String docId) async {
+  return userCollection
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .collection('myrecent_tests')
+      .doc(docId)
+      .collection('quiz_history')
+      .doc();
+
+}

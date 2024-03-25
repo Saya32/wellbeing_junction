@@ -35,9 +35,13 @@ class _UserDataScreenState extends State<UserDataScreen> {
         .doc(user.uid)
         .collection('myrecent_tests')
         .get()
-        .then((snapshot) {
-      for (var doc in snapshot.docs) {
-        doc.reference.collection('quiz_history').get().then((historySnapshot) {
+        .then((recentTestsSnapshot) async {
+      for (var recentTestDoc in recentTestsSnapshot.docs) {
+        var quizId = recentTestDoc.id;
+        await recentTestDoc.reference
+            .collection('quiz_history')
+            .get()
+            .then((historySnapshot) {
           for (var historyDoc in historySnapshot.docs) {
             print(historyDoc.reference);
             historyQuizdocIDs.add(historyDoc.reference.id);
@@ -51,58 +55,91 @@ class _UserDataScreenState extends State<UserDataScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('Recent Quiz Completed',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          ),
-          Expanded(
-              child: FutureBuilder(
-                  future: getDocIDRecentQuiz(),
-                  builder: (context, snapshot) {
-                    return ListView.builder(
-                        itemCount: recentQuizdocIDs.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              title: DisplayQuizData(
-                                documentId: recentQuizdocIDs[index],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Recent Quiz Completed',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            ),
+            Expanded(
+                child: FutureBuilder(
+                    future: getDocIDRecentQuiz(),
+                    builder: (context, snapshot) {
+                      return ListView.builder(
+                          itemCount: recentQuizdocIDs.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListTile(
+                                title: DisplayQuizData(
+                                  documentId: recentQuizdocIDs[index],
+                                ),
+                                tileColor: Colors.deepOrange[200],
                               ),
-                              tileColor: Colors.deepOrange[200],
-                            ),
-                          );
-                        });
-                  })),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('History Quiz Completed',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          ),
-          Expanded(
+                            );
+                          });
+                    })),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'History Quiz Completed',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Expanded(
               child: FutureBuilder(
-                  future: getDocIDHistoryQuiz(),
-                  builder: (context, snapshot) {
+                future: getDocIDHistoryQuiz(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
                     return ListView.builder(
-                        itemCount: historyQuizdocIDs.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              title: DisplayHistoryQuizData(
-                                documentId: historyQuizdocIDs[index],
-                                //quizId:'',
-                              ),
-                              tileColor: Colors.deepOrange[200],
-                            ),
-                          );
-                        });
-                  })),
-        ],
-      )),
+                      itemCount: historyQuizdocIDs.length,
+                      itemBuilder: (context, index) {
+                        return FutureBuilder<DocumentSnapshot>(
+                          future: userCollection
+                              .doc(user.uid)
+                              .collection('myrecent_tests')
+                              .doc(recentQuizdocIDs[index])
+                              .collection('quiz_history')
+                              .doc(historyQuizdocIDs[
+                                  index]) // Assuming this is the correct document ID in quiz_history
+                              .get(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              Map<String, dynamic> data =
+                                  snapshot.data!.data() as Map<String, dynamic>;
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ListTile(
+                                  title: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('${data['question_paper_title']}'),
+                                      Text('Points: ${data['points']}'),
+                                    ],
+                                  ),
+                                  tileColor: Colors.deepPurple[200],
+                                ),
+                              );
+                            } else {
+                              return CircularProgressIndicator();
+                            }
+                          },
+                        );
+                      },
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
