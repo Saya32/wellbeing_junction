@@ -30,6 +30,9 @@ https://docs.flutter.dev/cookbook/design/drawer for the use of Drawer
 https://docs.flutter.dev/release/breaking-changes/buttons button UI
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961185/ regarding who-5 and other analysis
 https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
+https://pub.dev/packages/fl_chart for Line graph
+https://github.com/imaNNeo/fl_chart/blob/main/repo_files/documentations/line_chart.md#sample-1-source-code for line chart
+https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko for retrieving data
 
 
 

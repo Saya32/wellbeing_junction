@@ -187,6 +187,7 @@ extension ResultControllerExtension on QuestionController {
     Map<String, dynamic> quizResultData = {
       "points": normalPoints,
       "question_paper_id": generalQuestionModel.id,
+      "question_paper_title": generalQuestionModel.title,
       "Score_level": scoreLevel,
       "date": formattedTodayDate // Add date to quiz result data
     };
@@ -202,13 +203,10 @@ extension ResultControllerExtension on QuestionController {
     }
 
     if (!dayDocSnapshot.exists) {
-      // If no record exists for today in quiz_history, create a new document
       batch.set(dayDocReference, quizResultData);
     } else {
-      // If a record exists for today, update it with the latest quiz result
       batch.update(dayDocReference, quizResultData);
     }
-
     // Update the recent test document with the latest result data
     batch.set(recentTestDocReference, quizResultData);
 

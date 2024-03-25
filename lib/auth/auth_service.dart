@@ -31,7 +31,7 @@ class AuthService {
     if (currentUser != null) {
       Map<String, dynamic> userData = {
         "email": account.email,
-        "first_name": account.displayName,
+        "first name": account.displayName,
       };
       userCollection.doc(currentUser.uid).set(userData);
     }

@@ -18,7 +18,7 @@ class _DashboardState extends State<Dashboard> {
   int selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const UserDataScreen(),
+    UserDataScreen(),
     const SelfAssessmentScreen(),
     const AdviceScreen(),
   ];
