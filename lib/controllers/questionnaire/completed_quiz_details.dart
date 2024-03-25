@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
+import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 
@@ -31,18 +32,17 @@ class DisplayQuizData extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('${data['question_paper_title']}'),
+                Text(
+                  '${data['question_paper_title']}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Text('Score: ${data['points']}'),
                 Text('${data['Score_level']}'),
                 Text('Completed On: ${formatDate(data['date'].toString())}'),
               ],
             );
           }
-          return Text('loading...');
+          return const Text('loading...');
         });
-  }
-
-  String formatDate(String dateString) {
-    return '${dateString.substring(0, 4)}/${dateString.substring(4, 6)}/${dateString.substring(6)}';
   }
 }

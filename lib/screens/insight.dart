@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/completed_quiz_details.dart';
 import 'package:wellbeing_junction/elements/background.dart';
+import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 
 class UserDataScreen extends StatefulWidget {
@@ -37,7 +38,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
         .get()
         .then((recentTestsSnapshot) async {
       for (var recentTestDoc in recentTestsSnapshot.docs) {
-        var quizId = recentTestDoc.id;
+        // var quizId = recentTestDoc.id;
         await recentTestDoc.reference
             .collection('quiz_history')
             .get()
@@ -72,11 +73,16 @@ class _UserDataScreenState extends State<UserDataScreen> {
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: ListTile(
-                                title: DisplayQuizData(
-                                  documentId: recentQuizdocIDs[index],
+                              child: Card(
+                                color: Color.fromARGB(255, 240, 187, 137),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                tileColor: Colors.deepOrange[200],
+                                child: ListTile(
+                                  title: DisplayQuizData(
+                                    documentId: recentQuizdocIDs[index],
+                                  ),
+                                ),
                               ),
                             );
                           });
@@ -84,7 +90,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'History Quiz Completed',
+                'Previous Quiz Completed',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
@@ -96,38 +102,49 @@ class _UserDataScreenState extends State<UserDataScreen> {
                     return ListView.builder(
                       itemCount: historyQuizdocIDs.length,
                       itemBuilder: (context, index) {
-                        return FutureBuilder<DocumentSnapshot>(
-                          future: userCollection
-                              .doc(user.uid)
-                              .collection('myrecent_tests')
-                              .doc(recentQuizdocIDs[index])
-                              .collection('quiz_history')
-                              .doc(historyQuizdocIDs[
-                                  index]) // Assuming this is the correct document ID in quiz_history
-                              .get(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              Map<String, dynamic> data =
-                                  snapshot.data!.data() as Map<String, dynamic>;
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: ListTile(
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('${data['question_paper_title']}'),
-                                      Text('Points: ${data['points']}'),
-                                    ],
+                        return Card(
+                          color: const Color.fromARGB(255, 238, 154, 154),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: FutureBuilder<DocumentSnapshot>(
+                            future: userCollection
+                                .doc(user.uid)
+                                .collection('myrecent_tests')
+                                .doc(recentQuizdocIDs[index])
+                                .collection('quiz_history')
+                                .doc(historyQuizdocIDs[index])
+                                .get(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.done) {
+                                Map<String, dynamic> data = snapshot.data!
+                                    .data() as Map<String, dynamic>;
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ListTile(
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '${data['question_paper_title']}',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text('Points: ${data['points']}'),
+                                        Text('${data['Score_level']}'),
+                                        Text(
+                                            'Completed On: ${formatDate(data['date'].toString())}'),
+                                      ],
+                                    ),
                                   ),
-                                  tileColor: Colors.deepPurple[200],
-                                ),
-                              );
-                            } else {
-                              return CircularProgressIndicator();
-                            }
-                          },
+                                );
+                              } else {
+                                return CircularProgressIndicator();
+                              }
+                            },
+                          ),
                         );
                       },
                     );
