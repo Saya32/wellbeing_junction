@@ -1,4 +1,4 @@
-//https://pub.dev/packages/url_launcher 
+//https://pub.dev/packages/url_launcher
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -28,17 +28,20 @@ class _AdviceScreenState extends State<AdviceScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Background(),
+          const Background(),
           SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Card(
-                    color: Color.fromARGB(255, 223, 20, 20),
-                    child: Text(
+                    color: const Color.fromARGB(255, 223, 20, 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: const Text(
                       'If you or someone else is in danger, call 999 or go to A&E now. If you need help urgently for your mental health, but it\'s not an emergency, get help from NHS 111 online or call 111. Your mental health is as important as your physical health. You will not be wasting anyone\'s time.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -50,15 +53,42 @@ class _AdviceScreenState extends State<AdviceScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
+                Card(
+                  color: Color.fromARGB(255, 241, 186, 58),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const Text(
+                    'The following guidance is intended for individuals experiencing mild to moderate levels of stress, anxiety, and depression. If you are dealing with severe or extremely severe levels of these conditions, it is recommended to promptly seek medical assistance. Furthermore, please be aware that the in-app quiz is designed for informational purposes only and should not be considered a substitute for professional medical help.',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Card(
+                  color: Color.fromARGB(255, 163, 214, 137),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const Text(
+                    'Stress',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
                 InkWell(
                   onTap: () => _launchURL(
                       'https://www.mentalhealth.org.uk/explore-mental-health/publications/how-manage-and-reduce-stress'),
                   child: const Text(
-                    'Stress',
+                    'Ways to Manage and Reduce Stress',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
@@ -67,23 +97,37 @@ class _AdviceScreenState extends State<AdviceScreen> {
                   onTap: () => _launchURL(
                       'https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/'),
                   child: const Text(
-                    'Tips to reduce stress',
+                    'Tools and Activities to reduce your stress!',
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
                 const SizedBox(height: 16.0),
+                Card(
+                  color: Color.fromARGB(255, 214, 218, 117),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const Text(
+                    'Anxiety',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
                 InkWell(
                   onTap: () => _launchURL(
                       'https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-self-help-guides/anxiety-self-help-guide/'),
                   child: const Text(
-                    'Anxiety',
+                    'Self-Help Guide to Manage Your Anxiety!',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
@@ -92,32 +136,90 @@ class _AdviceScreenState extends State<AdviceScreen> {
                   onTap: () => _launchURL(
                       'https://www.beyondblue.org.au/mental-health/anxiety/treatments-for-anxiety/anxiety-management-strategies'),
                   child: const Text(
-                    'Anxiety management strategies',
+                    'Anxiety Management Strategies!',
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
                 const SizedBox(height: 16.0),
+                Card(
+                  color: Color.fromARGB(255, 225, 194, 117),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const Text(
+                    'Depression',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
                 InkWell(
                   onTap: () => _launchURL(
-                      'https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/'),
+                      'https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-self-help-guides/depression-self-help-guide/'),
                   child: const Text(
-                    'Find an NHS talking therapies service',
+                    'Self-Help Guide to Manage Your Depression!',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
                 const SizedBox(height: 8.0),
-                const Text(
-                  'General Help',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
+                InkWell(
+                  onTap: () => _launchURL(
+                      'https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/'),
+                  child: const Text(
+                    'Depression Management Strategies!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Card(
+                  color: Color.fromARGB(255, 236, 232, 159),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const Text(
+                    'General Help',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => _launchURL(
+                      'https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/'),
+                  child: const Text(
+                    'Free Talking Therapy with NHS!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                InkWell(
+                  onTap: () => _launchURL(
+                      'https://www.nhs.uk/nhs-services/mental-health-services/how-to-find-local-mental-health-services/'),
+                  child: const Text(
+                    'Local Mental Health Services and Support!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
                   ),
                 ),
               ],
