@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/completed_quiz_details.dart';
-import 'package:wellbeing_junction/elements/background.dart';
 import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 
@@ -74,7 +73,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Card(
-                                color: Color.fromARGB(255, 240, 187, 137),
+                                color: const Color.fromARGB(255, 240, 187, 137),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
@@ -129,7 +128,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                                       children: [
                                         Text(
                                           '${data['question_paper_title']}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                         Text('Points: ${data['points']}'),
@@ -141,7 +140,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                                   ),
                                 );
                               } else {
-                                return CircularProgressIndicator();
+                                return const CircularProgressIndicator();
                               }
                             },
                           ),
@@ -149,7 +148,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                       },
                     );
                   } else {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   }
                 },
               ),

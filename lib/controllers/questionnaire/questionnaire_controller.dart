@@ -9,7 +9,7 @@ import '../../auth/auth_service.dart';
 import '../../screens/self_assessment_quiz.dart';
 
 class QuizPaperController extends GetxController {
-  final allPapers = <GeneralQuestionModel>[].obs;
+  late final allPapers = <GeneralQuestionModel>[].obs;
 
   @override
   void onReady() {

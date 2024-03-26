@@ -42,7 +42,7 @@ dependencies:
   google_sign_in: ^6.1.6
   liquid_pull_to_refresh: ^3.0.1
   smooth_page_indicator: ^1.1.0
-  url_launcher: ^6.0.0
+  url_launcher: 6.2.4
   shimmer: ^3.0.0 # shimmer might not be needed
   easy_separator: ^1.0.1 #might not needed
   intl: ^0.19.0 # for date format
@@ -58,6 +58,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  test: ^1.24.3
+  mockito: ^5.4.4
   
 
 # For information on the generic Dart part of this file, see the
