@@ -1,9 +1,12 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/completed_quiz_details.dart';
 import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
+import 'package:wellbeing_junction/models/normal_question_model.dart';
 
 class UserDataScreen extends StatefulWidget {
   const UserDataScreen({super.key});
@@ -14,12 +17,13 @@ class UserDataScreen extends StatefulWidget {
 
 class _UserDataScreenState extends State<UserDataScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
   // document IDs
   List<String> recentQuizdocIDs = [];
-  List<String> historyQuizdocIDs = [];
+  List<Map<String, dynamic>> historyQuizData = [];
 
   //get docIDs
-  Future getDocIDRecentQuiz() async {
+  Future<void> getDocIDRecentQuiz() async {
     await userCollection
         .doc(user.uid)
         .collection('myrecent_tests')
@@ -30,22 +34,26 @@ class _UserDataScreenState extends State<UserDataScreen> {
             }));
   }
 
-  Future getDocIDHistoryQuiz() async {
+  // Fetch and store quiz history data
+  Future<void> fetchQuizHistoryData() async {
+    historyQuizData.clear(); // Clear previous data
     await userCollection
         .doc(user.uid)
         .collection('myrecent_tests')
         .get()
         .then((recentTestsSnapshot) async {
       for (var recentTestDoc in recentTestsSnapshot.docs) {
-        // var quizId = recentTestDoc.id;
-        await recentTestDoc.reference
-            .collection('quiz_history')
-            .get()
-            .then((historySnapshot) {
-          for (var historyDoc in historySnapshot.docs) {
-            print(historyDoc.reference);
-            historyQuizdocIDs.add(historyDoc.reference.id);
-          }
+        final historySnapshot =
+            await recentTestDoc.reference.collection('quiz_history').get();
+
+        historySnapshot.docs.forEach((historyDoc) {
+          final quizData = historyDoc.data();
+          historyQuizData.add({
+            'title': quizData['question_paper_title'],
+            'points': quizData['points'],
+            'score_level': quizData['Score_level'],
+            'date': quizData['date'],
+          });
         });
       }
     });
@@ -60,32 +68,36 @@ class _UserDataScreenState extends State<UserDataScreen> {
           children: [
             const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text('Recent Quiz Completed',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              child: Text(
+                'Recent Quiz Completed',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
             Expanded(
-                child: FutureBuilder(
-                    future: getDocIDRecentQuiz(),
-                    builder: (context, snapshot) {
-                      return ListView.builder(
-                          itemCount: recentQuizdocIDs.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Card(
-                                color: const Color.fromARGB(255, 240, 187, 137),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                child: ListTile(
-                                  title: DisplayQuizData(
-                                    documentId: recentQuizdocIDs[index],
-                                  ),
-                                ),
+              child: FutureBuilder(
+                  future: getDocIDRecentQuiz(),
+                  builder: (context, snapshot) {
+                    return ListView.builder(
+                      itemCount: recentQuizdocIDs.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            color: Color.fromARGB(255, 240, 187, 137),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: ListTile(
+                              title: DisplayQuizData(
+                                documentId: recentQuizdocIDs[index],
                               ),
-                            );
-                          });
-                    })),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }),
+            ),
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
@@ -95,60 +107,42 @@ class _UserDataScreenState extends State<UserDataScreen> {
             ),
             Expanded(
               child: FutureBuilder(
-                future: getDocIDHistoryQuiz(),
+                future: fetchQuizHistoryData(),
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else {
                     return ListView.builder(
-                      itemCount: historyQuizdocIDs.length,
+                      itemCount: historyQuizData.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          color: const Color.fromARGB(255, 238, 154, 154),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          child: FutureBuilder<DocumentSnapshot>(
-                            future: userCollection
-                                .doc(user.uid)
-                                .collection('myrecent_tests')
-                                .doc(recentQuizdocIDs[index])
-                                .collection('quiz_history')
-                                .doc(historyQuizdocIDs[index])
-                                .get(),
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState ==
-                                  ConnectionState.done) {
-                                Map<String, dynamic> data = snapshot.data!
-                                    .data() as Map<String, dynamic>;
-                                return Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ListTile(
-                                    title: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          '${data['question_paper_title']}',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text('Points: ${data['points']}'),
-                                        Text('${data['Score_level']}'),
-                                        Text(
-                                            'Completed On: ${formatDate(data['date'].toString())}'),
-                                      ],
-                                    ),
+                        final quiz = historyQuizData[index];
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            color: const Color.fromARGB(255, 238, 154, 154),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: ListTile(
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    quiz['title'],
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                );
-                              } else {
-                                return const CircularProgressIndicator();
-                              }
-                            },
+                                  Text('Score: ${quiz['points']}'),
+                                  Text('${quiz['score_level']}'),
+                                  Text(
+                                      'Completed On: ${formatDate(quiz['date'].toString())}'),
+                                ],
+                              ),
+                            ),
                           ),
                         );
                       },
                     );
-                  } else {
-                    return const CircularProgressIndicator();
                   }
                 },
               ),
