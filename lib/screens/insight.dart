@@ -24,6 +24,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
 
   //get docIDs
   Future<void> getDocIDRecentQuiz() async {
+    recentQuizdocIDs.clear();
     await userCollection
         .doc(user.uid)
         .collection('myrecent_tests')
