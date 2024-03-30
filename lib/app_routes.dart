@@ -47,5 +47,9 @@ class AppScreenRoutes {
           name: AdviceScreen.routeName,
           page: () => const AdviceScreen(),
         ),
+        GetPage(
+          name: UserDataScreen.routeName,
+          page: () => const UserDataScreen(),
+        ),
       ];
 }

@@ -28,7 +28,7 @@ class _AppIntroductionScreenState extends State<AppIntroductionScreen> {
           controller: pageController,
           onPageChanged: (i) {
             setState(() {
-              lastPage = (i == 3);
+              lastPage = (i == 4);
             });
           },
           children: [
@@ -44,13 +44,34 @@ class _AppIntroductionScreenState extends State<AppIntroductionScreen> {
                 ),
               ),
             ), // Warning Page
-            Container(color: Colors.amber), // First Introduction Page
             Container(
-              color: const Color.fromARGB(255, 251, 150, 17),
-            ), // Second Introduction Page
+              color: Color.fromARGB(255, 230, 148, 86),
+              child: Image.asset(
+                'assets/images/SmartSelect_20240326_150541.jpg',
+                fit: BoxFit.contain,
+              ),
+            ), // First Introduction Page
             Container(
-              color: const Color.fromARGB(255, 233, 110, 17),
-            ) // Third Introduction Page
+              color: Colors.orangeAccent,
+              child: Image.asset(
+                'assets/images/SmartSelect_20240326_150447.jpg',
+                fit: BoxFit.contain,
+              ),
+            ), // Third Introduction Page
+            Container(
+              color: Color.fromARGB(255, 230, 148, 86),
+              child: Image.asset(
+                'assets/images/SmartSelect_20240326_150400.jpg',
+                fit: BoxFit.contain,
+              ),
+            ), // Fourth Introduction Page
+            Container(
+              color: Colors.orangeAccent,
+              child: Image.asset(
+                'assets/images/SmartSelect_20240326_150523.jpg',
+                fit: BoxFit.contain,
+              ),
+            ) // Fifth Introduction Page // fourth Introduction Pagee
           ],
         ),
         //smooth page swipe indicator
@@ -62,14 +83,13 @@ class _AppIntroductionScreenState extends State<AppIntroductionScreen> {
                   //Allows to skip the introduction
                   GestureDetector(
                       onTap: () {
-                        pageController.jumpToPage(3);
+                        pageController.jumpToPage(5);
                       },
                       child: const Text('Skip')),
 
                   //shows the state of the page
-                  SmoothPageIndicator(controller: pageController, count: 4),
+                  SmoothPageIndicator(controller: pageController, count: 5),
 
-                  // Allows to naviagte to next page or be done if it's in ast page
                   lastPage //boolean that returns true or false value
                       ? GestureDetector(
                           onTap: () {

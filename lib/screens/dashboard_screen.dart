@@ -1,7 +1,6 @@
 //https://docs.flutter.dev/cookbook/design/drawer
 
 import 'package:flutter/material.dart';
-import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/advice.dart';
 import 'package:wellbeing_junction/screens/insight.dart';
 import 'package:wellbeing_junction/screens/profile.dart';
@@ -16,10 +15,10 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int selectedIndex = 0;
+  int selectedIndex = 1;
 
   final List<Widget> _widgetOptions = <Widget>[
-    UserDataScreen(),
+    const UserDataScreen(),
     const SelfAssessmentScreen(),
     const AdviceScreen(),
   ];

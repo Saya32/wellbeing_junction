@@ -1,8 +1,6 @@
 // Extend the questions controller to use the provided functions
 //https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 
-// ignore_for_file: unnecessary_null_comparison
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
@@ -212,44 +210,43 @@ extension ResultControllerExtension on QuestionController {
 
     await batch.commit();
 
-    if (navigateTo == 'dashboard') {
-      navigateToDashboard();
+    if (navigateTo == 'insight') {
+      navigateToInsight();
     } else if (navigateTo == 'advice') {
       navigateToAdviceScreen();
     }
   }
 
   Future<void> fetchAndDisplayQuizHistory() async {
-  User? user = Get.find<AuthService>().getUser();
-  if (user == null) return;
+    User? user = Get.find<AuthService>().getUser();
+    if (user == null) return;
 
-  // Reference to user's recent test document
-  DocumentReference recentTestDocReference = userCollection
-      .doc(user.uid)
-      .collection('myrecent_tests')
-      .doc(generalQuestionModel.id);
+    // Reference to user's recent test document
+    DocumentReference recentTestDocReference = userCollection
+        .doc(user.uid)
+        .collection('myrecent_tests')
+        .doc(generalQuestionModel.id);
 
-  // Query quiz history
-  QuerySnapshot quizHistorySnapshot =
-      await recentTestDocReference.collection('quiz_history').get();
+    // Query quiz history
+    QuerySnapshot quizHistorySnapshot =
+        await recentTestDocReference.collection('quiz_history').get();
 
-  List<Map<String, dynamic>> quizHistoryList = [];
+    List<Map<String, dynamic>> quizHistoryList = [];
 
-  // Iterate through quiz history documents
-  quizHistorySnapshot.docs.forEach((quizDoc) {
-    Map<String, dynamic> quizData = quizDoc.data() as Map<String, dynamic>;
-    quizHistoryList.add({
-      'title': quizData['question_paper_title'],
-      'points': quizData['points'],
-      'score_level': quizData['Score_level']
+    // Iterate through quiz history documents
+    quizHistorySnapshot.docs.forEach((quizDoc) {
+      Map<String, dynamic> quizData = quizDoc.data() as Map<String, dynamic>;
+      quizHistoryList.add({
+        'title': quizData['question_paper_title'],
+        'points': quizData['points'],
+        'score_level': quizData['Score_level']
+      });
     });
-  });
 
-  quizHistoryList.forEach((quiz) {
-    print('Quiz Title: ${quiz['title']}');
-    print('Points: ${quiz['points']}');
-    print('Score Level: ${quiz['score_level']}');
-  });
-}
-
+    quizHistoryList.forEach((quiz) {
+      print('Quiz Title: ${quiz['title']}');
+      print('Points: ${quiz['points']}');
+      print('Score Level: ${quiz['score_level']}');
+    });
+  }
 }

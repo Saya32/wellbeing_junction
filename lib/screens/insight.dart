@@ -1,15 +1,15 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/controllers/questionnaire/completed_quiz_details.dart';
+import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
-import 'package:wellbeing_junction/models/normal_question_model.dart';
+import 'package:wellbeing_junction/screens/advice.dart';
+import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 
 class UserDataScreen extends StatefulWidget {
   const UserDataScreen({super.key});
+  static const String routeName = "/insight";
 
   @override
   State<UserDataScreen> createState() => _UserDataScreenState();
@@ -17,6 +17,7 @@ class UserDataScreen extends StatefulWidget {
 
 class _UserDataScreenState extends State<UserDataScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+  bool showMainAppBar = true;
 
   // document IDs
   List<String> recentQuizdocIDs = [];
@@ -84,7 +85,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Card(
-                            color: Color.fromARGB(255, 240, 187, 137),
+                            color: const Color.fromARGB(255, 240, 187, 137),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
                             ),
@@ -111,7 +112,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                 future: fetchQuizHistoryData(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   } else {
                     return ListView.builder(
                       itemCount: historyQuizData.length,
@@ -148,6 +149,19 @@ class _UserDataScreenState extends State<UserDataScreen> {
                 },
               ),
             ),
+            const SizedBox(height: 20), //allows padding
+            ButtonElement(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const AdviceScreen();
+                      },
+                    ),
+                  );
+                },
+                text: "Get extra Tips"),
           ],
         ),
       ),

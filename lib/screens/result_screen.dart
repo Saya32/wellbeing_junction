@@ -41,7 +41,7 @@ class ResultScreen extends GetView<QuestionController> {
                       ElevatedButton(
                         style: blackButtonStyle,
                         onPressed: () {
-                          controller.saveQuizResult(navigateTo: 'dashboard');
+                          controller.saveQuizResult(navigateTo: 'insight');
                         },
                         child: const Text('Get an Insight'),
                       ),
@@ -49,9 +49,16 @@ class ResultScreen extends GetView<QuestionController> {
                       ElevatedButton(
                         style: blackButtonStyle,
                         onPressed: () {
-                          controller.saveQuizResult(navigateTo: 'advice');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const Dashboard();
+                              },
+                            ),
+                          );
                         },
-                        child: const Text('Get a Tips and Advice'),
+                        child: const Text('Do not save the result'),
                       ),
                     ],
                   ),

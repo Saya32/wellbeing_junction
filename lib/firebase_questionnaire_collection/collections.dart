@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 final db = FirebaseFirestore.instance;
 final questionnaireCollection = db.collection('selfAssessmentQuestionnaire');
@@ -14,7 +13,3 @@ DocumentReference questionReference({
         .doc(questionnaireId)
         .collection("questions")
         .doc(questionId);
-
-CollectionReference<Map<String, dynamic>> recentTests(
-        {required String userUId}) =>
-    userCollection.doc(userUId).collection('myrecent_tests');

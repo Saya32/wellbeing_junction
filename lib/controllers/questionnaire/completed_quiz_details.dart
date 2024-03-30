@@ -3,11 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:wellbeing_junction/controllers/questionnaire/questions_controller.dart';
 import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
-import 'package:wellbeing_junction/models/normal_question_model.dart';
 
 class DisplayQuizData extends StatelessWidget {
   final String documentId;

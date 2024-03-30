@@ -7,6 +7,7 @@ import 'package:wellbeing_junction/firebase_questionnaire_collection/collections
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/advice.dart';
 import 'package:wellbeing_junction/screens/dashboard_screen.dart';
+import 'package:wellbeing_junction/screens/insight.dart';
 
 class QuestionController extends GetxController {
   @override
@@ -24,7 +25,9 @@ class QuestionController extends GetxController {
       debugPrint("Title: ${questionPaper.title}");
       loadQuestionsDetails(questionPaper);
     } else {
-      print("Something is wrong");
+      if (kDebugMode) {
+        print("Something is wrong");
+      }
     }
     super.onReady();
   }
@@ -100,11 +103,11 @@ class QuestionController extends GetxController {
     }
   }
 
-  void navigateToDashboard() {
-    Get.offNamedUntil(Dashboard.routeName, (route) => false);
+  void navigateToInsight() {
+    Get.offNamedUntil(UserDataScreen.routeName, (route) => false);
   }
 
   void navigateToAdviceScreen() {
-    Get.offNamedUntil(AdviceScreen.routeName, (route) => false);
+    Get.offNamedUntil(Dashboard.routeName, (route) => false);
   }
 }

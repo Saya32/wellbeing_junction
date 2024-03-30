@@ -18,7 +18,6 @@ class QuizPaperController extends GetxController {
   }
 
   Future<void> getAllPapers() async {
-    //isLoading(true);
     try {
       QuerySnapshot<Map<String, dynamic>> data =
           await questionnaireCollection.get();

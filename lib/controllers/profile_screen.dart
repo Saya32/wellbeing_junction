@@ -12,6 +12,20 @@ class ProfileScreenController extends GetxController {
   Rx<String> firstName = Rx('');
 
   @override
+  void onInit() {
+    super.onInit();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user != null) {
+        this.user.value = user;
+        fetchFirstName();
+      } else {
+        this.user.value = null;
+        firstName.value = ''; // Reset firstName when user signs out
+      }
+    });
+  }
+
+  @override
   void onReady() {
     user.value = Get.find<AuthService>().getUser();
     if (user.value != null) {

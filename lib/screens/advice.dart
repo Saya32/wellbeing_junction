@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wellbeing_junction/elements/background.dart';
+import 'package:wellbeing_junction/elements/button.dart';
+import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 
 class AdviceScreen extends StatefulWidget {
   const AdviceScreen({super.key});
@@ -278,6 +280,19 @@ class _AdviceScreenState extends State<AdviceScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 20), //allows padding
+                ButtonElement(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const Dashboard();
+                          },
+                        ),
+                      );
+                    },
+                    text: "Go to Dashboard"),
               ],
             ),
           ),
