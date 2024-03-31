@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:wellbeing_junction/auth/auth_service.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
-import 'package:wellbeing_junction/screens/advice.dart';
 import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 import 'package:wellbeing_junction/screens/insight.dart';
 

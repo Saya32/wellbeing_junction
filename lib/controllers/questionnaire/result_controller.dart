@@ -46,27 +46,27 @@ extension ResultControllerExtension on QuestionController {
       } else if (totalPoints >= 8 && totalPoints <= 15) {
         return 'This quiz indicates you have Mild Anxiety!';
       } else if (totalPoints >= 16 && totalPoints <= 25) {
-        return 'This quiz indicates you have Moderate Anxiety!';
+        return 'This quiz indicates you have Moderate Anxiety! Please refer to our anxiety section in our extra tips page for more help.';
       } else {
-        return 'This quiz indicates you have Severe Anxiety!';
+        return 'This quiz indicates you have Severe Anxiety! Please refer to our anxiety section in our extra tips page for more help.';
       }
     } else if (quizType == 'bdi') {
       if (totalPoints >= 0 && totalPoints <= 9) {
         return 'This quiz indicates you have Minimal Depression!';
       } else if (totalPoints >= 10 && totalPoints <= 18) {
-        return 'This quiz indicates you have Mild Depression!';
+        return 'This quiz indicates you have Mild Depression! Please refer to our depression section in our extra tips page for more help.';
       } else if (totalPoints >= 19 && totalPoints <= 29) {
-        return 'This quiz indicates you have Moderate Depression!';
+        return 'This quiz indicates you have Moderate Depression! Please refer to our depression section in our extra tips page for more help.';
       } else {
-        return 'This quiz indicates you have Severe Depression!';
+        return 'This quiz indicates you have Severe Depression! Please refer to our depression section in our extra tips page for more help.';
       }
     } else if (quizType == 'swls') {
       if (totalPoints >= 5 && totalPoints <= 9) {
-        return 'This quiz indicates you are extremely dissatisfied with your life!';
+        return 'This quiz indicates you are extremely dissatisfied with your life! Please refer to our general help section in our Extra Tips page for more advice.';
       } else if (totalPoints >= 10 && totalPoints <= 14) {
-        return 'This quiz indicates you are dissatisfied with your life!';
+        return 'This quiz indicates you are dissatisfied with your life! Please refer to our general help section in our Extra Tips page for more advice.';
       } else if (totalPoints >= 15 && totalPoints <= 19) {
-        return 'This quiz indicates you are slightly dissatisfied with your life!';
+        return 'This quiz indicates you are slightly dissatisfied with your life! Please refer to our general help section in our Extra Tips page for more advice.';
       } else if (totalPoints == 20) {
         return 'This quiz indicates you are Neutal with the level of satisfaction with life!';
       } else if (totalPoints >= 21 && totalPoints <= 25) {
@@ -82,22 +82,22 @@ extension ResultControllerExtension on QuestionController {
       } else if (totalPoints >= 14 && totalPoints <= 26) {
         return 'This quiz indicates you have moderate level of stress!';
       } else {
-        return 'This quiz indicates you have  high perceived stress!';
+        return 'This quiz indicates you have high perceived stress! Please refer to our stress section in our Extra Tips page for more advice.';
       }
     } else if (quizType == 'gad7') {
       if (totalPoints >= 0 && totalPoints <= 4) {
         return 'This quiz indicates you have No Anxiety!';
       } else if (totalPoints >= 5 && totalPoints <= 9) {
-        return 'This quiz indicates you have Mild Anxiety!';
+        return 'This quiz indicates you have Mild Anxiety! Please refer to our anxiety section in our extra tips page for more help.';
       } else if (totalPoints >= 10 && totalPoints <= 14) {
-        return 'This quiz indicates you have Moderate level of Anxiety!';
+        return 'This quiz indicates you have Moderate level of Anxiety! Please refer to our anxiety section in our extra tips page for more help.';
       } else {
-        return 'This quiz indicates you have Severe Anxiety!';
+        return 'This quiz indicates you have Severe Anxiety! Please refer to our anxiety section in our extra tips page for more help.';
       }
     } else if (quizType == 'who5') {
       int totalpercentage = totalPoints * 4;
       if (totalpercentage >= 0 && totalpercentage <= 52) {
-        return 'This quiz indicated poor wellbeing and is an indication for testing for depression under ICD-10.';
+        return 'This quiz indicates poor wellbeing, please refer to our extra advice and tips page for more help.';
       } else {
         return 'Maximal Well-being';
       }
@@ -119,9 +119,11 @@ extension ResultControllerExtension on QuestionController {
     } else if (depressionPoints <= 10) {
       depressionLevel = 'Moderate';
     } else if (depressionPoints <= 13) {
-      depressionLevel = 'Severe';
+      depressionLevel =
+          'Severe! Please refer to our depression section in our extra tips page for more help.';
     } else {
-      depressionLevel = 'Extremely Severe';
+      depressionLevel =
+          'Extremely Severe! Please refer to our depression section in our extra tips page for more help.';
     }
 
     String anxietyLevel;
@@ -132,9 +134,11 @@ extension ResultControllerExtension on QuestionController {
     } else if (anxietyPoints <= 7) {
       anxietyLevel = 'Moderate';
     } else if (anxietyPoints <= 9) {
-      anxietyLevel = 'Severe';
+      anxietyLevel =
+          'Severe! Please refer to our anxiety section in our extra tips page for more help.';
     } else {
-      anxietyLevel = 'Extremely Severe';
+      anxietyLevel =
+          'Extremely Severe! Please refer to our anxiety section in our extra tips page for more help.';
     }
 
     String stressLevel;
@@ -145,9 +149,11 @@ extension ResultControllerExtension on QuestionController {
     } else if (stressPoints <= 12) {
       stressLevel = 'Moderate';
     } else if (stressPoints <= 16) {
-      stressLevel = 'Severe';
+      stressLevel =
+          'Severe! Please refer to our stress section in our extra tips page for more help.';
     } else {
-      stressLevel = 'Extremely Severe';
+      stressLevel =
+          'Extremely Severe! Please refer to our stress section in our extra tips page for more help.';
     }
 
     return {
