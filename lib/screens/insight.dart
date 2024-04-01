@@ -5,7 +5,6 @@ import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/date.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 import 'package:wellbeing_junction/screens/advice.dart';
-import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 
 class UserDataScreen extends StatefulWidget {
   const UserDataScreen({super.key});

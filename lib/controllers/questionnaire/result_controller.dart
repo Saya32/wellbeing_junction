@@ -222,37 +222,4 @@ extension ResultControllerExtension on QuestionController {
       navigateToAdviceScreen();
     }
   }
-
-  Future<void> fetchAndDisplayQuizHistory() async {
-    User? user = Get.find<AuthService>().getUser();
-    if (user == null) return;
-
-    // Reference to user's recent test document
-    DocumentReference recentTestDocReference = userCollection
-        .doc(user.uid)
-        .collection('myrecent_tests')
-        .doc(generalQuestionModel.id);
-
-    // Query quiz history
-    QuerySnapshot quizHistorySnapshot =
-        await recentTestDocReference.collection('quiz_history').get();
-
-    List<Map<String, dynamic>> quizHistoryList = [];
-
-    // Iterate through quiz history documents
-    quizHistorySnapshot.docs.forEach((quizDoc) {
-      Map<String, dynamic> quizData = quizDoc.data() as Map<String, dynamic>;
-      quizHistoryList.add({
-        'title': quizData['question_paper_title'],
-        'points': quizData['points'],
-        'score_level': quizData['Score_level']
-      });
-    });
-
-    quizHistoryList.forEach((quiz) {
-      print('Quiz Title: ${quiz['title']}');
-      print('Points: ${quiz['points']}');
-      print('Score Level: ${quiz['score_level']}');
-    });
-  }
 }
