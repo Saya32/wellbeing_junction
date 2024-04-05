@@ -11,6 +11,7 @@ class SelfAssessmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(QuizPaperController());
     QuizPaperController quizPaperController = Get.find();
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 218, 126, 84),

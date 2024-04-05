@@ -20,7 +20,7 @@ class ProfileScreenController extends GetxController {
         fetchFirstName();
       } else {
         this.user.value = null;
-        firstName.value = ''; // Reset firstName when user signs out
+        //  firstName.value = ''; // Reset firstName when user signs out
       }
     });
   }
@@ -37,7 +37,7 @@ class ProfileScreenController extends GetxController {
   void signOut() async {
     await Get.find<AuthService>().signOut();
     await FirebaseAuth.instance.signOut();
-    Get.to(() => Authentication());
+    Get.to(() => const Authentication());
   }
 
   void sendEmail() async {
@@ -59,6 +59,7 @@ class ProfileScreenController extends GetxController {
   }
 
   Future<void> launchUrl(String url) async {
+    // ignore: deprecated_member_use
     if (!await launch(url)) {
       throw 'The email could not launch';
     }

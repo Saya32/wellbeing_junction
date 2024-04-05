@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner:
           false, //turns off the debug banner shown in app
-      title: 'Flutter Demo',
+      title: 'Mental Insight',
       getPages: AppScreenRoutes.screens(),
     );
   }

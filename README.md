@@ -17,9 +17,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Refrences
 
-Used https://suragch.medium.com/how-to-include-images-in-your-flutter-app-863889fc0b29 to add images in the app
-Used https://www.youtube.com/watch?v=yJ7qQxzkh9E&t=223s&ab_channel=MitchKoko to get help with firbase
-Used https://www.educative.io/answers/how-to-make-text-bold-in-flutter to learn textstyle in flutter
+- [Used to add images in the app] Suragch (2019) How to include images in your flutter app, Medium. Available at: https://suragch.medium.com/how-to-include-images-in-your-flutter-app-863889fc0b29 (Accessed: 05 April 2024). 
+- [Used to get help with firbase] Koko, M. (2023) 📱 the wall / coding a social media app • flutter X firebase tutorial, YouTube. Available at: https://www.youtube.com/watch?v=yJ7qQxzkh9E&t=223s&ab_channel=MitchKoko (Accessed: 05 April 2024). 
+- Used https://www.educative.io/answers/how-to-make-text-bold-in-flutter to learn textstyle in flutter
 Inspiration https://www.youtube.com/watch?v=qI_7znKKlhA&ab_channel=FlutterTeacher for font style
 Free logo design: https://logo-maker.freelogodesign.org/en/logo/edit/038a8833fdd747ad8b8391ae42ec1acc?template=1e164b9c0f4f4ff2aaece49dacd9c695&category=26&companyName=Wellbeing%20Junction
 Used https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google for firebase Auth help
@@ -31,7 +31,6 @@ https://docs.flutter.dev/release/breaking-changes/buttons button UI
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961185/ regarding who-5 and other analysis
 https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
 https://pub.dev/packages/fl_chart for Line graph
-https://github.com/imaNNeo/fl_chart/blob/main/repo_files/documentations/line_chart.md#sample-1-source-code for line chart
 https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko for retrieving data
 
 

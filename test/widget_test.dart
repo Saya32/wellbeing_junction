@@ -7,18 +7,11 @@
 
 // Not sure how to intialise the firebase -> which is causing errors
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wellbeing_junction/controllers/questionnaire/questionnaire_controller.dart';
-import 'package:wellbeing_junction/elements/answer_tile.dart';
-import 'package:wellbeing_junction/elements/quiz_tile.dart';
 import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 import 'package:wellbeing_junction/screens/forgot_password_screen.dart';
-import 'package:wellbeing_junction/screens/insight.dart';
 import 'package:wellbeing_junction/screens/login_screen.dart';
-import 'package:wellbeing_junction/screens/self_assessment_quiz.dart';
 import 'package:wellbeing_junction/screens/signup_screen.dart';
 
 void main() {

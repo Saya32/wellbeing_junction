@@ -10,6 +10,5 @@ class InitialBinding implements Bindings {
     Get.put(AuthService(), permanent: true);
     Get.put(QuizPaperController());
     Get.put(ProfileScreenController());
-   // Get.put(QuestionController());
   }
 }
