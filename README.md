@@ -20,18 +20,13 @@ samples, guidance on mobile development, and a full API reference.
 - [Used to add images in the app] Suragch (2019) How to include images in your flutter app, Medium. Available at: https://suragch.medium.com/how-to-include-images-in-your-flutter-app-863889fc0b29 (Accessed: 05 April 2024). 
 - [Used to get help with firbase] Koko, M. (2023) 📱 the wall / coding a social media app • flutter X firebase tutorial, YouTube. Available at: https://www.youtube.com/watch?v=yJ7qQxzkh9E&t=223s&ab_channel=MitchKoko (Accessed: 05 April 2024). 
 - Used https://www.educative.io/answers/how-to-make-text-bold-in-flutter to learn textstyle in flutter
-Inspiration https://www.youtube.com/watch?v=qI_7znKKlhA&ab_channel=FlutterTeacher for font style
-Free logo design: https://logo-maker.freelogodesign.org/en/logo/edit/038a8833fdd747ad8b8391ae42ec1acc?template=1e164b9c0f4f4ff2aaece49dacd9c695&category=26&companyName=Wellbeing%20Junction
-Used https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google for firebase Auth help
-Used https://firebase.google.com/docs/auth/flutter/federated-auth for firebase Auth help
-Used https://www.youtube.com/watch?v=bMTrKMcJW6k&t=1038s&ab_channel=TheFlutterNinja to start with the beginner friendly quiz app, used simple template code which are freely available!
-Used https://docs.flutter.dev/cookbook/design/drawer for drawer style of UI
-https://docs.flutter.dev/cookbook/design/drawer for the use of Drawer
-https://docs.flutter.dev/release/breaking-changes/buttons button UI
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961185/ regarding who-5 and other analysis
-https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint refrence for mapping used in result_controller
-https://pub.dev/packages/fl_chart for Line graph
-https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko for retrieving data
+- [Used for firebase Auth help] Ortan 8511 silver badge99 bronze badges, R. and Andres 19211 silver badge88 bronze badges, E. (1966) Flutter firebase how to sign in users with google, Stack Overflow. Available at: https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google (Accessed: 05 April 2024). 
+- [Used for firebase Auth help] firebase (2023) Federated Identity & Social Sign-in  |  firebase documentation, Google. Available at: https://firebase.google.com/docs/auth/flutter/federated-auth (Accessed: 05 April 2024). 
+- [Used for drawer style of UI] Flutter (no date) Add a drawer to a screen, Flutter. Available at: https://docs.flutter.dev/cookbook/design/drawer (Accessed: 05 April 2024). 
+- [button UI] FlutterOfficialWebsite (no date) New buttons and Button themes, Flutter. Available at: https://docs.flutter.dev/release/breaking-changes/buttons (Accessed: 05 April 2024). 
+- [regarding who-5 and other analysis] Omani-Samani, R. et al. (2019) The WHO-5 well-being index: A validation study in people with infertility, Iranian journal of public health. Available at: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961185/ (Accessed: 05 April 2024). 
+- [Refrence for mapping used in result_controller] Programming Point (2022) Collections in Dart: List, map and set | flutter dart tutorial #17, YouTube. Available at: https://www.youtube.com/watch?v=pxsKvudZpOQ&ab_channel=ProgrammingPoint (Accessed: 05 April 2024). 
+- [For retrieving data] Koko (2022) (CRUD)📱read & display data • firebase X flutter tutorial ♡, YouTube. Available at: https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko (Accessed: 05 April 2024). 
 
 
 
