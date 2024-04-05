@@ -16,7 +16,7 @@ class QuizTile extends GetView<QuizPaperController> {
           color: const Color.fromARGB(255, 246, 201, 133)),
       child: InkWell(
         onTap: () {
-          controller.navigatoQuestions(paper: model, isTryAgain: false);
+          controller.navigatoQuestions(paper: model);
         },
         child: Padding(
           padding: const EdgeInsets.all(9.0),

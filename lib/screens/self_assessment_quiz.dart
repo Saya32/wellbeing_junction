@@ -77,12 +77,12 @@ class SelfAssessmentScreen extends StatelessWidget {
                       child: ListView.separated(
                         itemBuilder: (BuildContext context, int index) {
                           return QuizTile(
-                              model: quizPaperController.allPapers[index]);
+                              model: quizPaperController.allQuizTypes[index]);
                         },
                         separatorBuilder: (BuildContext context, int index) {
                           return const SizedBox(height: 20);
                         },
-                        itemCount: quizPaperController.allPapers.length,
+                        itemCount: quizPaperController.allQuizTypes.length,
                       ),
                     ),
                   ),

@@ -5,26 +5,25 @@ import 'package:wellbeing_junction/firebase_questionnaire_collection/collections
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
 
-import '../../auth/auth_service.dart';
-import '../../screens/self_assessment_quiz.dart';
+// Inspiration to the below code --> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
 
 class QuizPaperController extends GetxController {
-  late final allPapers = <GeneralQuestionModel>[].obs;
+  late final allQuizTypes = <GeneralQuestionModel>[].obs;
 
   @override
   void onReady() {
-    getAllPapers();
+    getAllQuizes();
     super.onReady();
   }
 
-  Future<void> getAllPapers() async {
+  Future<void> getAllQuizes() async {
     try {
       QuerySnapshot<Map<String, dynamic>> data =
           await questionnaireCollection.get();
       final selfAssessmentQuizList = data.docs
           .map((paper) => GeneralQuestionModel.fromSnapshot(paper))
           .toList();
-      allPapers.assignAll(selfAssessmentQuizList);
+      allQuizTypes.assignAll(selfAssessmentQuizList);
     } catch (e) {
       if (kDebugMode) {
         print(e);
@@ -33,16 +32,7 @@ class QuizPaperController extends GetxController {
   }
 
   void navigatoQuestions(
-      {required GeneralQuestionModel paper, bool isTryAgain = false}) {
-    AuthService authController = Get.find();
-    if (authController.isLogedIn()) {
-      if (isTryAgain) {
-        Get.back();
-        Get.to(const SelfAssessmentScreen(),
-            arguments: paper, preventDuplicates: false);
-      } else {
+      {required GeneralQuestionModel paper}) {
         Get.toNamed(QuizDetailsScreen.routeName, arguments: paper);
-      }
-    }
   }
 }
