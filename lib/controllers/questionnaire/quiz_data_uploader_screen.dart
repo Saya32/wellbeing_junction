@@ -6,7 +6,7 @@ import 'package:wellbeing_junction/firebase_questionnaire_collection/update_stat
 // ignore: must_be_immutable
 class QuizDataUploadScreen extends StatelessWidget {
   QuizDataUploadScreen({super.key});
-  QuizDataUploader controller = Get.put(QuizDataUploader());
+  final QuizDataUploader controller = Get.put(QuizDataUploader());
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class QuizDataUploadScreen extends StatelessWidget {
         body: Center(
       child: Obx(() => Text(
           controller.updateStatus.value == UpdateStatus.completed
-              ? "Complete Uploaded"
-              : "uploading")),
+              ? "Upload is complete now"
+              : "It's still uploading")),
     ));
   }
 }
