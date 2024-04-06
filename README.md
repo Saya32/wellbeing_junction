@@ -15,7 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## Refrences
+## Reference
 - [Used to add images in the app] Suragch (2019) How to include images in your flutter app, Medium. Available at: https://suragch.medium.com/how-to-include-images-in-your-flutter-app-863889fc0b29 (Accessed: 05 April 2024). 
 - [Used to get help with firbase] Koko, M. (2023) 📱 the wall / coding a social media app • flutter X firebase tutorial, YouTube. Available at: https://www.youtube.com/watch?v=yJ7qQxzkh9E&t=223s&ab_channel=MitchKoko (Accessed: 05 April 2024). 
 - [Used for firebase Auth help] Ortan 8511 silver badge99 bronze badges, R. and Andres 19211 silver badge88 bronze badges, E. (1966) Flutter firebase how to sign in users with google, Stack Overflow. Available at: https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google (Accessed: 05 April 2024). 

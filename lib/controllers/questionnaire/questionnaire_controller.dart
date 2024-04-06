@@ -31,8 +31,7 @@ class QuizPaperController extends GetxController {
     }
   }
 
-  void navigatoQuestions(
-      {required GeneralQuestionModel paper}) {
-        Get.toNamed(QuizDetailsScreen.routeName, arguments: paper);
+  void navigatoQuestions({required GeneralQuestionModel paper}) {
+    Get.toNamed(QuizDetailsScreen.routeName, arguments: paper);
   }
 }
