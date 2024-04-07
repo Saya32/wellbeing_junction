@@ -1,6 +1,6 @@
 # Mental Insight App
 
-This app provides a mental health insight to an users by providing them a platform to do self-assessment quiz and providing them feedback once they complete the quiz. The users are also provided with extra resources to help them with their mental with their mental health.
+This app provides a mental health insight to an users by providing them a platform to do self-assessment quiz and providing them feedback once they complete the quiz. The users are also provided with extra resources to help them with their mental health.
 
 ## Getting Started using APK (easier way to use app)
 
@@ -15,7 +15,7 @@ User might need to allow installations from unknown sources temporarily.
 This can usually be done in the device’s settings under
 
 ```
-$ Security or Apps & notifications > 'Special app access > Install unknown apps.
+Security or Apps & notifications > 'Special app access > Install unknown apps.
 ```
 
 Once the user download the app, then user can sign-up to create an account and access the app. The tutorial for the app is displayed to the users, once they log in to the app.
@@ -52,7 +52,7 @@ Then the user need to upload the Self-Assessment Quiz to the backend:
 ```
 flutter pub get
 ```
-- Ensure an [Andriod Emulator](https://developer.android.com/studio/run/emulator) is set-up and running or connect your andriod device vis USB and enable USB debugging.
+- Ensure an [Andriod Emulator](https://developer.android.com/studio/run/emulator) is set-up and running, if not, then [connect your andriod device](https://www.youtube.com/watch?v=v01ISnOIbL8&ab_channel=UnitedTopTech) vis USB and enable USB debugging.
 
 - Then comment out the latest code from main class and replace with the below code:
 ```
@@ -73,7 +73,7 @@ Future<void> main() async {
   runApp(GetMaterialApp(home: QuizDataUploadScreen()));
 }
 ```
-Also comment out the latest code from models folder > normal_question_model.dart file
+Also comment out the latest code from models folder > normal_question_model.dart file and replace with the below code
 
 ```
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -167,7 +167,9 @@ class Options {
 flutter run
 
 ```
-Once the users see "Upload is complete now" then change the code back to normal. The users should also see the self-assesment quiz uploaded at the backend. It should look something like below image. 
+The user might get an error with other files due to the change in model, therefore, comment out all the files that gives an error.
+
+Once the users see "Upload is complete now" on their emulator then change the code back to normal by getting rid of the new code that was added and uncommenting all the code that was commented before. The users should also see the self-assesment quiz uploaded at the backend. It should look something like below image. 
 - ![alt text](image-1.png)
 
 Once the code are back to how it previously was, the user can run the below command in the terminal to run the app normally in their emualtor.
