@@ -7,6 +7,8 @@ import 'package:wellbeing_junction/elements/divider.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
 import 'package:wellbeing_junction/screens/forgot_password_screen.dart';
 
+//Adapted the implementation from youtue tutorial by Mitch Koko --> https://www.youtube.com/watch?v=Dh-cTQJgM-Q&t=897s&ab_channel=MitchKoko
+
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
   const LoginPage({super.key, required this.onTap});

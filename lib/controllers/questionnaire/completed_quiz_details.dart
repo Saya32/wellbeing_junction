@@ -1,4 +1,4 @@
-//used tutorial from youtube to implement below code to fetch data: https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko
+//used tutorial from youtube to write an implementation to fetch data: https://www.youtube.com/watch?v=PBxbWZZTG2Q&t=1224s&ab_channel=MitchKoko
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

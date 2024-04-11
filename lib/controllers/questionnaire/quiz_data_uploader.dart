@@ -9,7 +9,7 @@ import 'package:wellbeing_junction/firebase_questionnaire_collection/collections
 import 'package:wellbeing_junction/firebase_questionnaire_collection/update_status.dart';
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 
-// Implemented and debugged the below code section with the help of youtube tutorial--> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
+// Adapted and debugged the below code section with the help of youtube tutorial--> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
 
 class QuizDataUploader extends GetxController {
   final updateStatus = UpdateStatus.updating.obs;

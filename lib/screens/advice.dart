@@ -1,4 +1,4 @@
-//https://pub.dev/packages/url_launcher
+//offical flutter website use to learn about url launcher package --> https://pub.dev/packages/url_launcher
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

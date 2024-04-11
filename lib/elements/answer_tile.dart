@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class AnswerTile extends StatelessWidget {
   final String answer;
   final bool selected;

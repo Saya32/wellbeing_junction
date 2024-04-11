@@ -6,7 +6,7 @@ import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/dashboard_screen.dart';
 import 'package:wellbeing_junction/screens/insight.dart';
 
-// The below implementation was done using the help from youtube tutorial --> https://www.youtube.com/watch?v=KQcjvDBLcSs&ab_channel=dbestech
+// The below implementation to load the question was adapted from youtube tutorial --> https://www.youtube.com/watch?v=KQcjvDBLcSs&ab_channel=dbestech
 
 class QuestionController extends GetxController {
   @override

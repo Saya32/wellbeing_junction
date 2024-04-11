@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/elements/textfield.dart';
 
-// use of offical firebase document to implement below function: https://firebase.google.com/docs/auth/flutter/manage-users 
+// use of offical firebase document to implement below reset password function: https://firebase.google.com/docs/auth/flutter/manage-users 
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
