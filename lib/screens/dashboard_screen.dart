@@ -1,4 +1,4 @@
-//https://docs.flutter.dev/cookbook/design/drawer
+//The implementation of Drawer function was using an offfical flutter website --> https://docs.flutter.dev/cookbook/design/drawer
 
 import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/screens/advice.dart';

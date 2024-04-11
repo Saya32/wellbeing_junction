@@ -5,7 +5,7 @@ import 'package:wellbeing_junction/firebase_questionnaire_collection/collections
 import 'package:wellbeing_junction/models/normal_question_model.dart';
 import 'package:wellbeing_junction/screens/quiz_detail_scree.dart';
 
-// Inspiration to the below code from youtube tutorial--> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
+// Below code is adapted from youtube tutorial--> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
 
 class QuizPaperController extends GetxController {
   late final allQuizTypes = <GeneralQuestionModel>[].obs;

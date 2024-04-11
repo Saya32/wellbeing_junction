@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:wellbeing_junction/auth/welcome_screen.dart';
 import 'package:wellbeing_junction/screens/app_introduction_screen.dart';
 
+// Use of offical firebase document to implement authStateChanges function --> https://firebase.google.com/docs/auth/flutter/start
+
 class Authentication extends StatelessWidget {
   const Authentication({super.key});
 
