@@ -4,6 +4,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wellbeing_junction/firebase_questionnaire_collection/collections.dart';
 
+// used the below resources to get help for implementation
 // https://stackoverflow.com/questions/62865532/flutter-firebase-how-to-sign-in-users-with-google
 //https://firebase.google.com/docs/auth/flutter/federated-auth
 

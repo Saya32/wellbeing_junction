@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:convert';
-// refrence: https://jsontodart.com/
+// refrence: Use of https://jsontodart.com/ for debugging
 
 class GeneralQuestionModel {
   String id;

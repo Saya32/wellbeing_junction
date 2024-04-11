@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//Inspired by https://www.youtube.com/watch?v=Dh-cTQJgM-Q&t=896s&ab_channel=MitchKoko video
+
 class TextFieldElement extends StatelessWidget {
   final TextEditingController
       controller; // access what users typed in the textfield

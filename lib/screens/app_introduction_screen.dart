@@ -1,5 +1,4 @@
-//https://www.youtube.com/watch?v=SG2WNlQfqyc&t=607s&ab_channel=MitchKoko
-//https://pub.dev/packages/smooth_page_indicator
+// Use of offical website to learn smooth page indicator widget: https://pub.dev/packages/smooth_page_indicator
 
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

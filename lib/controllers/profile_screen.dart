@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wellbeing_junction/auth/auth_service.dart';
-
 import '../auth/auth_screen.dart';
 import '../firebase_questionnaire_collection/collections.dart';
-// https://pub.dev/packages/url_launcher
+
+//Use offical flutter package for the url launcher function https://pub.dev/packages/url_launcher
 
 class ProfileScreenController extends GetxController {
   Rxn<User?> user = Rxn();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
-  //https://www.edureka.co/community/231021/how-do-i-set-background-image-in-flutter
   const Background({super.key});
 
   @override

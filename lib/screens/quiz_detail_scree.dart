@@ -6,6 +6,8 @@ import 'package:wellbeing_junction/elements/background.dart';
 import 'package:wellbeing_junction/elements/button.dart';
 import 'package:wellbeing_junction/screens/result_screen.dart';
 
+// Use the same youtube tutorial to help fetch the question from firebase and modified to meet the requirement --> https://www.youtube.com/watch?v=ZSVnIphlGKI&ab_channel=dbestech
+
 class QuizDetailsScreen extends GetView<QuestionController> {
   const QuizDetailsScreen({super.key});
   static const String routeName = "/quizDetailsScreen";

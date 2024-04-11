@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// UI inspired by https://www.youtube.com/watch?v=Dh-cTQJgM-Q&t=896s&ab_channel=MitchKoko video
 class SquareBox extends StatelessWidget {
   final String imagePath;
   final Function()? onTap;
